@@ -1,14 +1,8 @@
 
 <!--
-INCLUYE PRUEBAS DE:
-    1) Formulario.  -> consultar el Tema 2.3.
 
-    2) ...
+OJO -> El table esta dentro del <form> y no al revés. 
 
-
-ME FALTA POR INCLUIR:
-
-    1) Etiquetas de formulario (Tema 2.3).
 
 
 -->
@@ -27,7 +21,40 @@ ME FALTA POR INCLUIR:
 
 <body>
     <form action="http://ncoge.com/phps/formulario.php">
-        
+        <h1> Formulario de prueba</h1>
+        <table border = "2">
+            <tr>
+                <td>    
+                    <fieldset>
+                        <legend>Datos personales</legend>
+                        Nombre: <input type="text" name ="nombre"/>
+                        Apellidos: <input type="text" name ="apellidos"/>
+
+                    </fieldset>
+
+                </td>
+
+                <td>
+                    <fieldset>
+                        <legend>Idiomas</legend>
+                        Español<input type ="radio" name="spanish" value = "1"/>
+
+
+
+
+                    </fieldset>
+                </td>
+
+
+
+            </tr>
+
+
+
+
+        </table>
+
+
     </form>
 
 
@@ -43,47 +70,149 @@ ME FALTA POR INCLUIR:
 
 Este segundo bloque de comentario es para ir pegando etiquetas a medida que repaso el temario. 
 
-1) El temario de formularios está en el pdf de "Tema 2.3"  -> a partir de la página 10.
+        - El temario de formularios está en el pdf de "Tema 2.3"  -> a partir de la página 10.
 
 
-2) <form> </form>
+1) <form> </form>
 
-        2.1) action  -> Atributo:   <form action = "url"
+        - La etiqueta <form> es necesaria para que al pulsar el botón Submit se envíe el formulario (es la referencia que tiene ese botón para saber desde dónde hasta donde debe enviar).
 
-        2.2) method  -> Atributo:  <form method = "POST"   -> al clicar en el enviará el formulario. 
+        1.1) action  -> Atributo:   <form action = "url"
 
-        2.3) enctype -> Atributo: <form enctype = "application/x-www-form-urlencoded" o "multipart/form-data"      -> para que las respuestas del usuario estén encriptadas y no se puedan ver desde el navegador. 
+        1.2) method  -> Atributo:  <form method = "POST"   -> al clicar en el enviará el formulario. 
 
-        2.4) accept  -> Atributo: <form accept = "tipo_de_contenido"   ->   Lista separada por comas de todos los tipos de archivos aceptados por el servidor (sólo para los formularios que permiten adjuntar archivos).
+        1.3) enctype -> Atributo: <form enctype = "application/x-www-form-urlencoded" o "multipart/form-data"      -> para que las respuestas del usuario estén encriptadas y no se puedan ver desde el navegador. 
 
-        2.5) NOTA: La mayoría de formularios utilizan sólo los atributos action y method.
+        1.4) accept  -> Atributo: <form accept = "tipo_de_contenido"   ->   Lista separada por comas de todos los tipos de archivos aceptados por el servidor (sólo para los formularios que permiten adjuntar archivos).
+
+        1.5) NOTA: La mayoría de formularios utilizan sólo los atributos action y method.
 
 
-3) ETIQUETAS DENTRO DE <form>  </form>
 
-        3.1) <input> 
+2) ETIQUETAS DENTRO DE <form>  </form>
 
-                3.1.1) type  -> Atributo  <input type = "text | password | checkbox | radio | submit | reset | file | hidden | image | button".
+        2.1) <input> 
 
-                3.1.2) name  -> Atributo  <input name = "texto"    ->  Asigna un nombre al control (es IMPRESCINDIBLE para que el servidor pueda procesar el formulario).
+                2.1.1) type  -> Atributo  <input type = "text | password | checkbox | radio | submit | reset | file | hidden | image | button".
 
-                3.1.3) value  -> Atributo  <input value = "texto"     ->  Valor inicial del control.
+                            - NOTA: value  ->  en los botones de formulario es habitual que el atributo value sirva para establecer el TEXTO QUE MUESTRA EL BOTÓN. Si no se utiliza este atributo, el navegador muestra el texto predefinido del botón (ej: en el caso de reset es "Reestablecer").
 
-                3.1.4) size  -> Atributo  <input size = "unidad_de_medida"  -> Tamaño inicial del control (para los campos de texto y de password se refiere al número de caracteres, en el resto de controles se refiere a su tamaño en píxel).
+                            2.1.1.1) submit   
+                
+                                            - Es el botón de enviar.
 
-                3.1.5) maxlength  -> Atributo  <input maxlength = "numero"  ->  Máximo número de caracteres para los controles de texto y de password.
+                                            - Sintaxis: <input type ="submit"  
 
-                3.1.6) checked  -> Atributo  <input checked = "checked"   ->  Para los controles checkbox y radiobutton permite indicar qué opción aparece preseleccionada.
+                                            Ejemplo: <input type="submit" name="buscar" value="Buscar" /> 
+                            
 
-                3.1.7) disabled  -> Atributo <input disabled = "disabled"  ->   El control aparece deshabilitado y su valor no se envía al servidor junto con el resto de datos. NOTA: me cuesta imaginar una situación en la que esto sea útil.
+                            2.1.1.2) text  
 
-                3.1.8) readonly  -> Atributo <input readonly = "readonly"  ->  El contenido del control no se puede modificar.
+                                            Ejemplo: 
+                                                    Nombre <br/>
+                                                    <input type="text" name="nombre" value="" />
 
-                3.1.9) src
 
-                3.1.10) alt 
+                            2.1.1.3) password
 
-    - voy por la pag 2.3.13 del tema
+                                            Ejemplo: 
+                                                    Contraseña <br/>
+                                                    <input type="password" name="contrasena" value="" />
+
+
+                            2.1.1.4) checkbox
+
+                                            Ejemplo: 
+                                                    Puestos de trabajo buscados <br/>
+                                                    <input name="puesto_directivo" type="checkbox" value="direccion"/> Dirección
+                                                    <input name="puesto_tecnico" type="checkbox" value="tecnico"/> Técnico
+                                                    <input name="puesto_empleado" type="checkbox" value="empleado"/> Empleado
+
+
+                            2.1.1.5) radio
+
+                                            - Es el circulo que puedes marcar para seleccionar una opción u otra en un formulario. 
+
+                                            Ejemplo:
+                                                    Sexo <br/>
+                                                    <input type="radio" name="sexo" value="hombre" checked="checked" /> Hombre
+                                                    <input type="radio" name="sexo" value="mujer" /> Mujer
+
+
+                            2.1.1.6) reset
+
+                                            - Es el botón para borrar todos los datos del formulario.
+
+                                            - Ejemplo: <input type="reset" name="limpiar" value="Borrar datos del formulario" />
+                            
+
+                            2.1.1.7) file
+
+                                            - Ejemplo: <input type="file" name="adjunto" />
+
+                                            - El navegador se encarga de mostrar un cuadro de texto donde aparece el nombre del archivo seleccionado y un botón que permite navegar por los directorios y archivos del ordenador del usuario.
+
+
+                            2.1.1.8) hidden
+
+                                            - Ejemplo: <input type="hidden" name="url_previa" value="/articulo/primero.html" />
+
+
+                            2.1.1.9) image
+
+                                            - El aspecto de los botones de formulario se puede personalizar por completo, ya que incluso es posible utilizar una imagen como botón.
+
+                                            - Ejemplo: <input type="image" name="enviar" src="accept.png" />
+
+
+                            2.1.1.10) *** VOY POR LA PÁGINA 2.3.18.  ->  taltan etiquetas por poner en este resumen. ***
+
+
+
+                2.1.2) name  -> Atributo  <input name = "texto"    ->  Asigna un nombre al control (es IMPRESCINDIBLE para que el servidor pueda procesar el formulario).
+
+                                NOTA: value  ->  en los botones de formulario es habitual que el atributo value sirva para establecer el TEXTO QUE MUESTRA EL BOTÓN. Si no se utiliza este atributo, el navegador muestra el texto predefinido del botón (ej: en el caso de reset es "Reestablecer").
+
+                2.1.3) value  -> Atributo  <input value = "texto"     ->  Valor inicial del control.
+
+                                Ejemplo: <input type="submit" name="buscar" value="Buscar" />    ->  aquí value determina el texto que aparece en el botón de enviar. 
+
+
+                2.1.4) size  -> Atributo  <input size = "unidad_de_medida"  -> Tamaño inicial del control (para los campos de texto y de password se refiere al número de caracteres, en el resto de controles se refiere a su tamaño en píxel).
+
+
+                2.1.5) maxlength  -> Atributo  <input maxlength = "numero"  ->  Máximo número de caracteres para los controles de texto y de password.
+
+
+                2.1.6) checked  -> Atributo  <input checked = "checked"   ->  Para los controles checkbox y radiobutton permite indicar qué opción aparece preseleccionada.
+
+
+                2.1.7) disabled  -> Atributo <input disabled = "disabled"  ->   El control aparece deshabilitado y su valor no se envía al servidor junto con el resto de datos. NOTA: me cuesta imaginar una situación en la que esto sea útil.
+
+                
+                2.1.8) readonly  -> Atributo <input readonly = "readonly"  ->  El contenido del control no se puede modificar.
+
+
+                2.1.9) src    ->  Atributo <input src = "url"  ->  Para el control que permite crear botones con imágenes, indica la URL de la imagen que se emplea como botón de formulario.
+
+
+                2.1.10) alt  -> Atributo <input alt = "text"   ->  Descripción del control.
+
+
+        2.2) <fieldset>
+
+                - Es una etiqueta que permite formar cajas con diferentes bloques del formulario. 
+
+
+
+
+
+
+
+
+
+
+*** Voy por la pag 2.3.18 del tema. -> faltan etiquetas por poner.***
 
 
 
