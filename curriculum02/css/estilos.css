@@ -1,0 +1,24 @@
+
+
+
+p { color: black; font-family: Verdana}
+
+li { color: black; font-family: Verdana}
+
+
+
+/*
+
+COMENTARIOS / RECORDATORIOS:
+
+
+1) Recuerda, en el archivo .html que use este CSS en su <head> debe incluir está línea de código:
+
+        <head>
+            [...]
+            <link rel="stylesheet" type="text/css" href="./css/estilos.css" media="screen" />
+        </head>
+
+
+
+*/
