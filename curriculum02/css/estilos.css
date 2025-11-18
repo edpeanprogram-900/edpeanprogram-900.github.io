@@ -1,15 +1,17 @@
 
-
 body {
     font-family: Verdana;
+    margin: 20px;
 }
 
+.contenedor {
+    width: 70%;        
+    margin: 0 auto;    
+}
 
 .bloque {
-    width: 50%;
-    margin-left: 0;
+    width: 100%;       
 }
-
 
 .texto {
     float: left;
@@ -17,17 +19,25 @@ body {
     text-align: justify;
 }
 
-
 .foto {
     float: left;
-    width: 40%;
+    width: 10%;
 }
 
+.foto img {
+    width: 100%;        
+
+}
 
 .bloque::after {
     content: "";
     display: block;
     clear: both;
+}
+
+h3 {
+    margin-top: 30px;
+    text-align: auto;   
 }
 
 
