@@ -1,13 +1,35 @@
 
 
 
-p { color: black; font-family: Verdana}
-
-li { color: black; font-family: Verdana}
-
-h3 { color: black; font-family: Verdana}
+body {
+    font-family: Verdana;
+}
 
 
+.bloque {
+    width: 50%;
+    margin: auto;
+}
+
+
+.texto {
+    float: left;
+    width: 60%;
+    text-align: justify;
+}
+
+
+.foto {
+    float: left;
+    width: 40%;
+}
+
+
+.bloque::after {
+    content: "";
+    display: block;
+    clear: both;
+}
 
 
 
