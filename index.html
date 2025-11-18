@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,13 +17,14 @@
     <div class="bloque">
 
         <div class="col-izquierda">
-            <img src="./images/Foto_Secundaria_Index.png" width="50%">
+            <img src="./images/Foto_Secundaria_Index.png" width="90%">
         </div>
 
         <div class="col-derecha">
             <ul>
                 <li><a href="./curriculum01/index.html">Currículum Versión 01</a></li>
-                <li><a href="./curriculum02/index.html">Currículum Versión 02</a></li>
+                <li><a href="./curriculum02/index.html">Currículum Versión 02 </a></li>
+                <li><a href="./curriculum03/index.html">Currículum Versión 03 (con CSS) </a></li>
             </ul>
         </div>
 
@@ -34,23 +38,30 @@
 
 
 
+<!--
 
-<!-- 
+COMENTARIOS:
 
-ASPECTOS APRENDIDOS EN ESTE EJERCICIO:
+1) Para hacer la transición a CSS de esta web que ya tenía creada, la estrategia ha sido la creación de varios <div>.
 
-1) <td colspan = "2"      ->  para que el título ocupe toda la parte superior. Le estás diciendo que ocupa dos celdas (que es el número total de celdas de la fila de abajo).
+    1.- Un primer <div> al que le hemos asignado la class ".bloque".
 
-2) La etiqueta <title> del <head>    -> solo da título a la pestaña del navegador  ->   por eso uso después <h1> dentro del <body> para darle título. 
+        - Este div incluye casi todo el contenido del <body> (menos el título: "Mis trabajos de LLMM").
+        
+        - Esta clase ".bloque" nos ha servido después en el CSS para poner la propiedad "width" al 50% -> y así los margenes quedan libres y el contenido queda centrado.
+                                - Nota: en CSS no se habla de "atributos" sino de "propiedades".
 
-3) <img src ="./images/Foto_Secundaria_Index.png"   ->  el atributo es src  -> y siempre usamos rutas relativas (nunca absolutas).
+        - Para que eso funcione hemos añadido también  la propiedad "margin" y la hemos puesto en auto. -> para que se quede centrado. Sino ocuparía el "50%" de la pantalla pero lo haría en el borde izquierdo.
 
-4) <img src = "..."  width = "50%"    ->    usamos width para ajustar el tamaño de la imagen. 
 
-5)  <td align = "left"  Y   <ul align = "left"  ->   Para que la lista de tareas salga pegada al borde izquierdo de su celda  ->  usamos:
+2) Otros 2 <div> han sido a los que les hemos asignado las class "col-izquierda" y "col-derecha".
 
-                    <td align = "left"
-                            <ul align ="left">
+        - Obviamente aquí he tenido que usar cosas que no habíamos dado en clase. Y obviamente he usado ia, pero todo lo que he usado me he tomado la molestia de pararme a estudiarlo y a entender por qué es útil para mi web.
 
+        - El caso es que la propiedad "float" es muy útil porque te permite colocar elementos uno al lado del otro sin que se solapen.
+
+                    - Por eso tanto en "col-izquierda" como en "col-derecha" he puesto "float:left".
+
+                    - Y a parte he puesto en ambas "width : 50%", de forma que quepan una al lado de la otra (ya que porcentaje es porcentaje de la anchura del elemento que las contiene, que es la clase ".contenedor").
 
 -->

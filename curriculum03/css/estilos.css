@@ -5,7 +5,7 @@ body {
 }
 
 .contenedor {
-    width: 50%;        /* -> Esto me permite que el curriculum quede centrado en la pantalla (al ocupar solo el 70% de esta)*/
+    width: 50%;        /* -> Esto me permite que el curriculum quede centrado en la pantalla (al ocupar solo el 50% de esta)*/
     margin: 0 auto;    
 }
 

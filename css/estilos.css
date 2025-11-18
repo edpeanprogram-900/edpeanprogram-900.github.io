@@ -11,6 +11,14 @@ body {
 }
 
 
+/* Añado el siguiente bloque "html, body" para lograr que la imagen de fondo ocupe toda la pantalla. Y lo consigo haciendo que el html cubra toda la pantalla. */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
 h1 {
     text-align: center;
     color: white;
@@ -25,7 +33,6 @@ h1 {
 .col-izquierda {
     float: left;
     width: 50%;
-    text-align: center;
 }
 
 
@@ -63,6 +70,9 @@ COMENTARIOS / RECORDATORIOS:
             <link rel="stylesheet" type="text/css" href="./css/estilos.css" media="screen" />
         </head>
 
+
+
+2) margin : auto     -> centra el <div> horizontalmente. 
 
 
 */
