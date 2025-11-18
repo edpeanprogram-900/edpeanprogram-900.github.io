@@ -1,15 +1,43 @@
 
 
+body {
+    background-image: url("../images/Fondo_index.jpg");
+    background-position: center;
+    background-size: cover;
+}
 
-p { color: black; font-family: Verdana}
-
-a {color: white; font-family: Verdana}
 
 h1 {color: white; font-family: Verdana}
 
+.contenedor {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
 
 
+.col-izquierda {
+    width: 50%;
+    text-align: center;
+}
 
+.col-izquierda img {
+    width: 50%;
+}
+
+.col-derecha {
+    width: 50%;
+    text-align: left;
+}
+
+.col-derecha ul {
+    font-size: 18px;
+}
+
+.col-derecha a {
+    color: white;
+}
 
 
 
