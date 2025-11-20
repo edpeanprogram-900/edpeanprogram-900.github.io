@@ -1,20 +1,62 @@
-body {
 
+
+
+body {
+    background-image: url("../images/fondo.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    
 }
+
+
+
+/* Añado el siguiente bloque "html, body" para lograr que la imagen de fondo ocupe toda la pantalla. Y lo consigo haciendo que el html cubra toda la pantalla. */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
 
 h1 {
+    background-color: darkgray;
+    color: white;
+    text-align: center;
+    display: inline-block;
 
 }
 
+/* Para centrar el título pese a que ahora es una box que no ocupa la línea entera:*/
+
+#header {
+    text-align: center;
+}
+
+
+/* ESTO SIGUE SIN FUNCIONAR: LA IMAGEN DEL PERIODICO OCULTA LOS BOTONES. */
 img {
-
+    width: auto;
+    max-height: 50%;
 }
+
 
 ul {
-
+    text-align: center;
 }
 
-li {
 
+li {
+    text-align: center;
+    border: 1px solid black;
+    display: inline-block;
+}
+
+
+#content{
+    text-align: center;
+    align-items: center;
 }
 
