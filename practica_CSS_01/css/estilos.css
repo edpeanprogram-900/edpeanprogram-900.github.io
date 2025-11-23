@@ -7,7 +7,9 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     overflow: hidden;
-    
+
+    /* Ahora aplico el tipo de fuente obtenida de Google: */
+    font-family: "Science Gothic", sans-serif;
 }
 
 
@@ -25,8 +27,10 @@ h1 {
     background-color: darkgray;
     color: white;
     text-align: center;
-    display: inline-block;
+    border-left: 5px solid #ff0000;
 
+    /* Ahora aplico el tipo de fuente obtenida de Google: */
+    font-family: "Science Gothic", sans-serif;
 }
 
 /* Para centrar el título pese a que ahora es una box que no ocupa la línea entera:*/
@@ -38,8 +42,12 @@ h1 {
 
 /* ESTO SIGUE SIN FUNCIONAR: LA IMAGEN DEL PERIODICO OCULTA LOS BOTONES. */
 img {
-    width: auto;
-    max-height: 50%;
+    width: 500px;
+    height: auto;
+    border: 2px solid black;
+    border-radius: 10px;    /* Esto me permite que el borde sea redondeado.*/
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+
 }
 
 
@@ -60,3 +68,13 @@ li {
     align-items: center;
 }
 
+
+.science-gothic {
+  font-family: "Science Gothic", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  font-variation-settings: "slnt" 0,
+    "wdth" 100,
+    "CTRS" 0;
+}
