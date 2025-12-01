@@ -17,9 +17,6 @@ body {
 h1 {
   padding: 0px;
   margin: 0px;
-  
-
-
 }
 
 
@@ -61,7 +58,6 @@ p {
   padding: 0px;
   margin: 0px;
 
-
   border-width: 5px;
   border-bottom-color: black;
   border-bottom-style: solid;
@@ -88,6 +84,7 @@ p {
 
   /* Los tres párrafos arrojan sombras. */
   box-shadow: 5px 5px 5px 5px black;
+
   border-width: 5px;
   border-style: dashed;
   border-color: black;
@@ -95,7 +92,15 @@ p {
   /* Los Párrafos tienen una sangría de 40 px en la primera línea. */
   text-indent: 40px;
 
-  
+  /* Los tres párrafos rellenan el 90% de la ventana. */
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+
+  /* Los párrafos no rellenan completamente la caja asignada, deben estar separados 10px. */
+  padding: 10px;
+
+
 }
 
 
@@ -116,10 +121,7 @@ p {
 
 /* Para conseguir que el segundo párrafo tenga un color de fondo que no está presente en el primero he tenido que crear este selector:  */
 #text p:nth-child(2){
-
   background-color: #83abdd;
-
-
 }
 
 
@@ -133,15 +135,12 @@ p {
   border-bottom-right-radius: 30px;
   background-color: #83abdd;
  
-
-
 }
 
 
 
 
 #menu {
-
   text-align: center;
 }
 
@@ -163,7 +162,6 @@ p {
 
   /* A la izquierda de cada opción de menú aparece una linea roja de 5px. */
   border-left: 5px solid #ff0000
-  
 
 }
 
@@ -171,7 +169,8 @@ p {
 
 
 #menu li a:hover{
-
+  /* Al pasar el puntero del ratón encima de los enlaces del menú estos aparecerán subrayados en rojo.  */
+  color: #cf1212;
 }
 
 
@@ -198,7 +197,6 @@ p {
 #footer a{
 
   color: white;
-  
 
 }
 
@@ -207,7 +205,8 @@ p {
 
 
 #footer a:hover{
-
+  /* Al pasar el puntero del ratón encima de los enlaces del menú estos aparecerán subrayados en rojo.  */
+  color: #cf1212;
 }
 
 
@@ -217,9 +216,7 @@ p {
   
   /* "Tiene una separación a la derecha de 60px: */
   margin-right: 60px;
- 
   margin-top: 5px;
-  
   display: block;
   text-align: right;
   
@@ -241,6 +238,26 @@ p {
 
 @media all and (max-width: 500px) {
 
+      #image img {
+          /* El borde de la imagen cambia a rojo. */
+          border-width: 5px;
+          border-color: #d10808;
+          border-style: solid;
+
+          /* El tamaño que ocupa la imagen debe ser el 90% del total. */
+          width: 90%;
+          height: auto;
+      }
+
+
+      #image {
+        /* La imagen debe aparecer en el centro de la ventana.  */
+        margin-right: auto;
+        margin-top: 5px;
+        display: block;
+        text-align: center;
+      }
+
 }
 
 
@@ -249,8 +266,6 @@ p {
 
 
 /*                      
-
-
 
 
  DESCARTADO:
@@ -263,16 +278,6 @@ p {
 
         line-height: 0;
         height:40px;
-
-
-
-
-
-
-
-
-
-
 
 
 
