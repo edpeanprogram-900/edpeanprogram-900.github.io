@@ -15,6 +15,10 @@ body {
 
 
 h1 {
+  padding: 0px;
+  margin: 0px;
+  
+
 
 }
 
@@ -52,7 +56,15 @@ p {
 
 #header {
   text-align: center;
-  background-color: blue;
+  background-color: #97a7ba;
+
+  padding: 0px;
+  margin: 0px;
+
+
+  border-width: 5px;
+  border-bottom-color: black;
+  border-bottom-style: solid;
 }
 
 
@@ -73,6 +85,16 @@ p {
 
 
 #text p {
+
+  /* Los tres párrafos arrojan sombras. */
+  box-shadow: 5px 5px 5px 5px black;
+  border-width: 5px;
+  border-style: dashed;
+  border-color: black;
+
+  /* Los Párrafos tienen una sangría de 40 px en la primera línea. */
+  text-indent: 40px;
+
   
 }
 
@@ -80,12 +102,38 @@ p {
 
 
 #text p:first-child {
+
+  /* Las esquinas del primer párrafo aparecen redondeadas solo en la parte superior 30px. */
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  background-image: url("../images/fondoParrafo.png");
   
+
+
 }
 
 
 
+/* Para conseguir que el segundo párrafo tenga un color de fondo que no está presente en el primero he tenido que crear este selector:  */
+#text p:nth-child(2){
+
+  background-color: #83abdd;
+
+
+}
+
+
+
+
+
 #text p:last-child {
+  
+  /* Las esquinas del último párrafo aparecen redondeadas solo en la parte inferior 30px.*/
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  background-color: #83abdd;
+ 
+
 
 }
 
@@ -94,6 +142,7 @@ p {
 
 #menu {
 
+  text-align: center;
 }
 
 
@@ -110,6 +159,12 @@ p {
 
 #menu li{
 
+  display: inline-block;
+
+  /* A la izquierda de cada opción de menú aparece una linea roja de 5px. */
+  border-left: 5px solid #ff0000
+  
+
 }
 
 
@@ -125,6 +180,15 @@ p {
 
 #footer{
 
+  border-top-color: black;
+  border-top-width: 5px;
+  border-style: solid;
+
+  text-align: center;
+  background-color: #883bd0;
+
+  color: white;
+
 }
 
 
@@ -132,6 +196,9 @@ p {
 
 
 #footer a{
+
+  color: white;
+  
 
 }
 
@@ -147,7 +214,24 @@ p {
 
 
 #image {
+  
+  /* "Tiene una separación a la derecha de 60px: */
+  margin-right: 60px;
+ 
+  margin-top: 5px;
+  
+  display: block;
+  text-align: right;
+  
+  
+}
 
+
+
+#image img {
+  border-width: 5px;
+  border-color: black;
+  border-style: solid;
 }
 
 
@@ -169,4 +253,37 @@ p {
 
 
 
+ DESCARTADO:
+
+        position: absolute;
+        right: 0;
+        margin-left: auto;
+
+        line-height: 0;
+
+        line-height: 0;
+        height:40px;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 */
+
+
+
+
+
+
+
+
+
