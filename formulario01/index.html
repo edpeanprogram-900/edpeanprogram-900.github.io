@@ -1,12 +1,4 @@
 
-<!--
-
-OJO -> El <table> debe estar dentro del <form> y no al revés. 
-
-
--->
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,47 +6,29 @@ OJO -> El <table> debe estar dentro del <form> y no al revés.
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Formulario de prueba. </title>
+    <title> Formulario de prueba </title>
 </head>
 
 
 <body>
-    <form action="http://ncoge.com/phps/formulario.php">
-        <h1> Formulario de prueba</h1>
-        <table border = "2">
-            <tr>
-                <td>    
-                    <fieldset>
-                        <legend>Datos personales</legend>
-                        Nombre: <input type="text" name ="nombre"/>
-                        Apellidos: <input type="text" name ="apellidos"/>
+    <h1> Formulario de prueba</h1>
 
-                    </fieldset>
+    <table>
+        <tr> <!-- Esta es la fila que tiene 2 columnas: 1 columna de "Datos personales" y otra columna de "Idiomas" y "Dominio de los siguientes programas y "Trabajo con el siguiente Sistema Operativo"-->
+            <td>
 
-                </td>
 
-                <td>
-                    <fieldset>
-                        <legend>Idiomas</legend>
-                        Español<input type ="radio" name="spanish" value = "1"/>
+            </td>
+        </tr>
+
+
+        <tr>
 
 
 
-
-                    </fieldset>
-                </td>
-
-
-
-            </tr>
-
-
-
-
-        </table>
-
-
-    </form>
+        </tr>
+    </table>
+    
 
 
 </body>
@@ -65,9 +39,67 @@ OJO -> El <table> debe estar dentro del <form> y no al revés.
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Este ejercicio consiste en que te muestra la imagen de un formulario y has de lograr crear un formulario igual.-->
+
+
+
+
+
+
+
+
+
+
 <!--
 
-Este segundo bloque de comentario es para ir pegando etiquetas a medida que repaso el temario. 
+OJO -> El <table> debe estar dentro del <form> y no al revés. 
+
+
+-->
+
+
+
+
+
+
+<!--
+
+REPASO DE TODAS LAS ETIQUETAS DEL TEMA DE FORMULARIOS:
 
         - El temario de formularios está en el pdf de "Tema 2.3"  -> a partir de la página 10.
 
@@ -212,6 +244,79 @@ Este segundo bloque de comentario es para ir pegando etiquetas a medida que repa
 
 
 *** Voy por la pag 2.3.18 del tema. -> faltan etiquetas por poner.***
+
+
+
+-->
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+VERSION DESCARTADA:
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Formulario de prueba. </title>
+</head>
+
+
+<body>
+    <form action="http://ncoge.com/phps/formulario.php">
+        <h1> Formulario de prueba</h1>
+        <table border = "2">
+            <tr>
+                <td>    
+                    <fieldset>
+                        <legend>Datos personales</legend>
+                        Nombre: <input type="text" name ="nombre"/>
+                        Apellidos: <input type="text" name ="apellidos"/>
+
+                    </fieldset>
+
+                </td>
+
+                <td>
+                    <fieldset>
+                        <legend>Idiomas</legend>
+                        Español<input type ="radio" name="spanish" value = "1"/>
+
+
+
+
+                    </fieldset>
+                </td>
+
+
+
+            </tr>
+
+
+
+
+        </table>
+
+
+    </form>
+
+
+</body>
+</html>
+
+
 
 
 
