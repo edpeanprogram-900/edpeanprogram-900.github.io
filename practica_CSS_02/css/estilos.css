@@ -214,7 +214,7 @@ p {
 
 #image {
   
-  /* "Tiene una separación a la derecha de 60px: */
+  /* Tiene una separación a la derecha de 60px: */
   margin-right: 60px;
   margin-top: 5px;
   display: block;
@@ -265,8 +265,33 @@ p {
 
 
 
-/*                      
+/*
 
+1) #image {  display: block;  text-align: right;
+          - OJO -> esa combinación de esas dos propiedades es esencial para poder alinear la imagen a la derecha.
+                            - La conviertes en tipo block para que SI sea afectada por el text-align: right.
+                                            - Si la convirtieras en inline-block deja de ser afectada por el text-align.
+
+
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*                      
 
  DESCARTADO:
 

@@ -44,7 +44,7 @@ h1 {
 img {
     width: 500px;
     height: auto;
-    border: 2px solid black;
+    border: 2px solid #000000;
     border-radius: 10px;    /* Esto me permite que el borde sea redondeado.*/
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 
@@ -78,3 +78,91 @@ li {
     "wdth" 100,
     "CTRS" 0;
 }
+
+
+
+
+
+
+/* 
+
+1) body { background-image: url("../images/fondo.jpeg");
+
+
+2) body { background-size: cover;
+
+
+3) body { background-repeat: no-repeat;
+
+
+4) body { overflow: hidden;
+            - Sirve para evitar que se haga scroll vertical u horizontal. 
+            - Esto es útil cuando has diseñado la web de forma que es una página fija donde todo el contenido está en pantalla (landing fullscreen).
+
+
+5) Importancia de los <div> (html) -> En esta práctica el index.html ya nos lo dan preparado con los <div> creados, pero no por ello debemos pasar por alto la importancia de esta estrategia (creación de <div> a los que les das un valor de class de modo que puedes referenciarlos desde el archivo CSS y darles propiedades específicas).
+
+
+6) body { font-family: "Science Gothic", sans-serif;
+            - Ojo esta fuente la habíamos importado previamente al archivo html (desde una web te dan unos enlaces y los pegas en el archivo html para poder usar esa fuente).
+
+
+7) html, body { height: 100%;
+            - Añado el siguiente bloque "html, body" para lograr que la imagen de fondo ocupe toda la pantalla. Y lo consigo haciendo que el html cubra toda la pantalla. 
+            - Recuerda que la coma ahí indica que no son necesariamente hijos, sino que lo que estás haciendo simplemente es una lista de selectores a los cuales le aplicas lo mismo.
+
+
+8) h1 { background-color: darkgray;
+
+
+9) TRUCO para la selección de COLORES::after
+            - Escribe la instrucción con el nombre de cualquier color. Luego pon el cursor sobre el cuadradito del color -> te sale una miniventanita emergente con un gradiente de colores sobre el que puedes clicar para seleccionar tu color. Además puedes clicar en el texto de la parte superior de esa ventanita para escoger en que formato quieres que escriba ese color (el más utilizado es el HEXADECIMAL). 
+
+
+10) h1 { text-align: center;
+
+
+11) h1 { border-left: 5px solid #ff0000;
+            - Esa es la versión shorthand (abreviada) de la propiedad border (permite poner varios valores seguidos y por orden en el que están escritos ya se sabe cuál es cada uno). 
+            - Ojo si no pones el solid el borde es invisible. 
+            - Si lo quieres poner en propiedades separadas:
+                    border-left-width: 5px;
+                    border-left-style: solid;
+                    border-left-color: #ff0000;
+
+
+12) #header { text-align: center;
+            - Recuerda que "#" es para referirnos al identificador que hemos generado en el html. Y recuerda que el identificador se genera dentro de las etiquetas html mediante el atributo llamado "id".
+            - OJO -> id es ÚNICA -> solo puede apuntar a 1 único elemento. Mietras que las clases pueden reutilizarse (una clase configurada en css puede apuntar a varios elementos del html).
+
+
+13) img { width: 500px;   height: auto;
+            - La magnitud más empleada para la anchura de la imagen son los píxeles (px). Al principio pensaba que era una unidad absoluta, pero no, es una unidad relativa (varía en función de la resolución de la pantalla).
+
+
+14) img { border: 2px solid #000000;
+            - Si lo quieres poner en propiedades separadas:
+                    border-width: 2px;
+                    border-style: solid;
+                    border-color: #000000;
+
+
+15) img { border-radius: 10px;
+            - Esto es para redondear los bordes. 
+
+
+16) img { box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+            - Esto es para que la caja tenga sombra.
+            - El orden de los valores es este:
+                    1. Desplazamiento horizontal (offset-x): 5px
+                    2. Desplazamiento vertical (offset-y): 5px
+                    3. Desenfoque (blur-radius): 10px
+                    4. Color: rgba(0, 0, 0, 0.5)
+
+
+17) li { display: inline-block;
+            - IMPORTANTE: esto es para que los elementos de la lista se pongan unos al lado de los otros (como cajitas una al lado de la otra).
+
+
+
+*/
