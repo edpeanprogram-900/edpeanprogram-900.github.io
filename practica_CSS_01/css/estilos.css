@@ -80,6 +80,31 @@ li {
 }
 
 
+/*
+
+CORRECCIÓN QUE ME PUSO PASCUAL:
+
+Para que las imágenes tengan la misma altura tienes que fijar solo el height 
+
+
+img {
+    width: 500px;
+    height: auto;
+
+debe ser:
+img {
+    height: 500px;
+
+
+
+*/
+
+
+
+
+
+
+
 
 
 
