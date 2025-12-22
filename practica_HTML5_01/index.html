@@ -1,0 +1,218 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtubers Españoles Famosos</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+    <div class="header">
+        <ul id="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="mikecrack.html">Mikecrack</a></li>
+            <li><a href="elrubius.html">ElRubiusOMG</a></li>
+            <li><a href="dotCSV.html">DotCSV</a></li>
+            <li><a href="braisMoure.html">BraisMoure</a></li>                
+            <li><a href="lucasDalto.html">LucasDalto</a></li>
+            <li><a href="chicaGeek.html">ChicaGeek</a></li>
+            <li><a href="valeriaCorrales.html">ValeriaCorrales</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <div class="youtuber">
+            <img src="images/home2.jpeg" alt="youtubers" class="imageHome" >
+        </div>
+        <div class="footer">
+            <h1>Youtubers Españoles Famosos</h1>
+        </div>        
+    </div>
+
+</body>
+
+</html>
+
+
+
+
+<!--      
+
+Cambios PENDIENTES de realizar: 
+
+1) Primero:
+
+        1.1.- Sustituir <div class="header"> por <header> y SACARLO del <body>
+
+        1.2.- OJO -> Ir al CSS y modificarlo ahí también. 
+
+                    - Hacer los dos cambios SEGUIDOS porque es fácil dejarte el CSS sin cambiar y se queda el error. 
+
+
+2) Segundo:
+        
+        2.1.- Eliminar el <div class="container">  
+
+                    - Esto es necesario ya que al haber sacado el <div class="header"> de dentro del <body>  ->  ahora la propia etiqueta <body> ya delimita exactamente
+                    lo mismo que la etiqueta <div class="container">.
+                    
+        2.2.- OJO -> Ir al CSS y modificarlo ahí también. 
+
+
+3) 
+
+
+
+
+
+
+
+
+-->
+
+
+
+
+
+<!-- 
+
+Dejo aquí el código HTML4 original del ejercicio para poder compararlo al estudiar:
+ 
+    <!DOCTYPE html>
+
+    <html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Youtubers Españoles Famosos</title>
+        <link rel="stylesheet" href="./css/styles.css">
+    </head>
+
+    <body>
+        <div class="header">
+            <ul id="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="mikecrack.html">Mikecrack</a></li>
+                <li><a href="elrubius.html">ElRubiusOMG</a></li>
+                <li><a href="dotCSV.html">DotCSV</a></li>
+                <li><a href="braisMoure.html">BraisMoure</a></li>                
+                <li><a href="lucasDalto.html">LucasDalto</a></li>
+                <li><a href="chicaGeek.html">ChicaGeek</a></li>
+                <li><a href="valeriaCorrales.html">ValeriaCorrales</a></li>
+            </ul>
+        </div>
+
+        <div class="container">
+            <div class="youtuber">
+                <img src="images/home2.jpeg" alt="youtubers" class="imageHome" >
+            </div>
+            <div class="footer">
+                <h1>Youtubers Españoles Famosos</h1>
+            </div>        
+        </div>
+
+    </body>
+
+    </html>
+
+
+-->
+
+
+
+
+
+
+
+
+
+<!-- 
+
+HAY QUE HACER LA CONVERSIÓN A HTML5:
+
+0) La idea clave de HTML5 es que los elementos HTML no están par dar formato, sino para indicar de forma clara qué TIPO DE CONTENIDO son (valor "semántico"). 
+
+                - Esto se debe a que en HTML5 se tiene claro que el formato se va a dar con CSS y no con HTML.
+
+
+1) La estructura básica de la página cambia, ahora es así:
+
+        <!DOCTYPE html>
+        <html lang="es">
+                <head>
+                    <meta charset="UTF-8" >
+                    <title>Título</title>
+                </head>
+                <body>
+                </body>
+        </html>
+
+                    - La etiqueta meta es mucho más sencilla para indicar el código del archivo (Unicode).
+                    - El lenguaje se indica sólo con el atributo lang del elemento html.
+                    - El resto de elementos no varía
+
+
+2) <header>
+
+3) <article>
+
+4) <aside>
+
+5) <footer>
+
+6) <section id = " ">
+
+            - Es una directiva nueva en Html y funciona igual que la directiva <div>. Su introducción en Html se debe a que existían demasiadas directivas <div> 
+            en los documentos html. Su presencia, estructura mejor el código html de punto de vista estético y visual, disminuyendo en este modo la presencia de los <div>.
+            - Lógicamente, por la delimitación de un área con la directiva <section>, a este último tendría que dar un nombre utilizando los atributos "id" o "class" con el fin de su identificación 
+            posterior para formatearla.
+            - La idea básica es que <section> indica de forma más clara que se trata de una sección TEMÁTICA del contenido mientras que <div> no cuenta nada por sí mismo.
+            Es una diferencia muy sutil, pero que sí que es importante seguir. 
+
+
+7) <nav>
+
+8) <address>
+
+9) <figure>  y  <figcaption>
+
+10) <video>    ->  src;   width;   height;   autoplay;    loop;    controls;     preload;    poster
+
+11) <source>   ->   src;     type
+
+                    - Ejemplo:
+                            <video autoplay="autoplay" controls="controls" poster="foto1.jpg" >
+                                    <source src="video.mp4" type="video/mp4 " />
+                                    <source src="video.ogv" type="video/ogg " /> El navegador no puede mostrar el vídeo
+                            </video>
+
+12) <audio>    ->  src;    autoplay;   loop;    controls;    preload;
+
+13) <canvas>    ->   dibujar elementos mediante lenguaje JavaScript.
+
+                    - Ejemplo:
+
+                            <canvas id="lienzo1" width="600" height="400" />
+                            <script type="text/javascript">
+                                    var canvas=document.getElementById("lienzo1");
+                                    var contexto=canvas.getContext("2d");
+                                    contexto.lineWidth=2;
+                                    for(i=0;i<=600;i+=20){
+                                            contexto.moveTo(0,0); contexto.lineTo(i,400) contexto.stroke();
+                                    }
+                            </script>tablas
+
+
+
+13) Con esto concluyen las etiquetas vistas en la Parte 1 del Tema 4. 
+
+                    - La parte 2 son los formularios y no aplica a este ejercicio. 
+
+
+
+-->
