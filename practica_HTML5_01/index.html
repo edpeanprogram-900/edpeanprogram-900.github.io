@@ -57,15 +57,20 @@ Cambios PENDIENTES de realizar:
         
         2.1.- Eliminar el <div class="container">  
 
-                    - Esto es necesario ya que al haber sacado el <div class="header"> de dentro del <body>  ->  ahora la propia etiqueta <body> ya delimita exactamente
-                    lo mismo que la etiqueta <div class="container">.
+                    - Esto es necesario ya que al haber sacado el <div class="header"> de dentro del <body>  ->  ahora la propia etiqueta <body> ya 
+                    delimita exactamente lo mismo que la etiqueta <div class="container">.
                     
         2.2.- OJO -> Ir al CSS y modificarlo ahí también. 
 
 
-3) 
+3) Tercero:
 
+        3.1.- Sustituir <div class="youtuber"> por <section id = "youtuber">
 
+                    - La idea básica es que <section> indica de forma más clara que se trata de una sección TEMÁTICA del contenido mientras que <div> 
+                    no cuenta nada por sí mismo. Es una diferencia muy sutil, pero que sí que es importante seguir. 
+
+        3.2.- OJO -> Ir al CSS y modificarlo ahí también.
 
 
 
@@ -167,12 +172,13 @@ HAY QUE HACER LA CONVERSIÓN A HTML5:
 
 6) <section id = " ">
 
-            - Es una directiva nueva en Html y funciona igual que la directiva <div>. Su introducción en Html se debe a que existían demasiadas directivas <div> 
-            en los documentos html. Su presencia, estructura mejor el código html de punto de vista estético y visual, disminuyendo en este modo la presencia de los <div>.
-            - Lógicamente, por la delimitación de un área con la directiva <section>, a este último tendría que dar un nombre utilizando los atributos "id" o "class" con el fin de su identificación 
-            posterior para formatearla.
-            - La idea básica es que <section> indica de forma más clara que se trata de una sección TEMÁTICA del contenido mientras que <div> no cuenta nada por sí mismo.
-            Es una diferencia muy sutil, pero que sí que es importante seguir. 
+            - Es una directiva nueva en Html y funciona igual que la directiva <div>. Su introducción en Html se debe a que existían demasiadas 
+            directivas <div> en los documentos html. Su presencia, estructura mejor el código html de punto de vista estético y visual, disminuyendo en 
+            este modo la presencia de los <div>.
+            - Lógicamente, por la delimitación de un área con la directiva <section>, a este último tendría que dar un nombre utilizando los atributos 
+            "id" o "class" con el fin de su identificación posterior para formatearla.
+            - La idea básica es que <section> indica de forma más clara que se trata de una sección TEMÁTICA del contenido mientras que <div> no cuenta 
+            nada por sí mismo. Es una diferencia muy sutil, pero que sí que es importante seguir. 
 
 
 7) <nav>
