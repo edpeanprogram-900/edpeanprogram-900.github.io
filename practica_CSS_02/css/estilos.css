@@ -160,7 +160,7 @@ p {
 #menu li{
 
   /*  Para que los enlaces se comporten como pequeñas cajitas que se disponen una al lado de otra en una misma línea: */
-  /* Pese a haberlos convertido a inline-block sí que les afecta el text-align: center presente en el selector que lo contiene.*/
+  /* Pese a haberlos convertido a inline-block sí que les afecta el "text-align: center" presente en el selector que lo contiene.*/
   display: inline-block;
 
   /* A la izquierda de cada opción de menú aparece una linea roja de 5px. */
