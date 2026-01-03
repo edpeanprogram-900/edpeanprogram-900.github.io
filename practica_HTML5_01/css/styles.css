@@ -15,7 +15,9 @@ Como extra del ENUNCIADO se añaden estos datos:
 
 body {
     /* 1- color de fondo */
+    background-color: #333333;
     /* 2- ancho 90% */
+
     /* 3- centrar */
 }
 
