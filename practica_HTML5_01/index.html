@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <div class="header">
+    <header>
         <ul id="menu">
             <li><a href="index.html">Home</a></li>
             <li><a href="mikecrack.html">Mikecrack</a></li>
@@ -22,15 +22,15 @@
             <li><a href="chicaGeek.html">ChicaGeek</a></li>
             <li><a href="valeriaCorrales.html">ValeriaCorrales</a></li>
         </ul>
-    </div>
+    </header>
 
     <div class="container">
-        <div class="youtuber">
+        <section id="youtuber">
             <img src="images/home2.jpeg" alt="youtubers" class="imageHome" >
-        </div>
-        <div class="footer">
+        </section>
+        <footer>
             <h1>Youtubers Españoles Famosos</h1>
-        </div>        
+        </footer>        
     </div>
 
 </body>
@@ -46,35 +46,93 @@ Cambios PENDIENTES de realizar:
 
 1) Primero:
 
-        1.1.- Sustituir <div class="header"> por <header> y SACARLO del <body>
+        1.1.- Sustituir <div class="header"> por <header>._______________HECHO
 
-        1.2.- OJO -> Ir al CSS y modificarlo ahí también. 
+        1.2.- OJO -> Ir al CSS y modificarlo ahí también._________________HECHO
 
                     - Hacer los dos cambios SEGUIDOS porque es fácil dejarte el CSS sin cambiar y se queda el error. 
 
+                    - El selector correcto en el CSS ya no es ".header" sino simpememente "header".
 
-2) Segundo:
-        
-        2.1.- Eliminar el <div class="container">  
+        1.3.- Cambiarlo también en braisMoure.html__________________HECHO
 
-                    - Esto es necesario ya que al haber sacado el <div class="header"> de dentro del <body>  ->  ahora la propia etiqueta <body> ya 
-                    delimita exactamente lo mismo que la etiqueta <div class="container">.
-                    
-        2.2.- OJO -> Ir al CSS y modificarlo ahí también. 
+        1.4.- Cambiarlo también en chicaGeek.html___________________HECHO
+
+        1.5.- Cambiarlo también en dotCSV.html_____________________HECHO
+
+        1.6.- Cambiarlo también en elrubius.html______________________HECHO
+
+        1.7.- Cambiarlo también en lucasDalto.html___________________HECHO
+
+        1.8.- Cambiarlo también en mikecrack.html____________________HECHO
+
+        1.9.- Cambiarlo también en valeriaCorrales.html____________________HECHO
+
+
+
+2) Segundo:_______________HECHO
+
+        - Dado que <div class="container"> no tiene un significado semántico concreto (incluye a la seccion de los youtubers y al footer) 
+        es correcto dejarlo tal y como está (no es correcto en este caso sustituirlo porque no tiene ningún sustituto adecuado).
+
+        - Es un caso de uso correcto (admitido) de <div> en HTML5.
+
+
 
 
 3) Tercero:
 
-        3.1.- Sustituir <div class="youtuber"> por <section id = "youtuber">
+        3.1.- Sustituir <div class="youtuber"> por <section id = "youtuber">________________HECHO
 
-                    - La idea básica es que <section> indica de forma más clara que se trata de una sección TEMÁTICA del contenido mientras que <div> 
-                    no cuenta nada por sí mismo. Es una diferencia muy sutil, pero que sí que es importante seguir. 
+                    - La idea básica es que <section> indica de forma más clara que se trata de una sección TEMÁTICA del contenido mientras que 
+                    <div> no cuenta nada por sí mismo. Es una diferencia muy sutil, pero que sí que es importante seguir. 
 
-        3.2.- OJO -> Ir al CSS y modificarlo ahí también.
+        3.2.- OJO -> Ir al CSS y modificarlo ahí también._______________________HECHO
+
+                    - Así que hay que en el CSS hay que sustituir los ".youtuber" por "#youtuber".
+
+                    - Dado que esa va a ser la única <section> del HTML5, podríamos usar tambien el selector "section" en el CSS pero es más
+                    correcto hacerlo con el id (ya que en el futuro podrían añadirse más secciones a las que no queremos que se aplique ese 
+                    código).
+
+        3.3.- Cambiarlo también en braisMoure.html__________________HECHO
+
+        3.4.- Cambiarlo también en chicaGeek.html___________________HECHO
+
+        3.5.- Cambiarlo también en dotCSV.html_____________________HECHO
+
+        3.6.- Cambiarlo también en elrubius.html______________________HECHO
+
+        3.7.- Cambiarlo también en lucasDalto.html___________________HECHO
+
+        3.8.- Cambiarlo también en mikecrack.html____________________HECHO
+
+        3.9.- Cambiarlo también en valeriaCorrales.html____________________HECHO
 
 
 
 
+4) Cuarto:
+
+        4.1.- Sustituir <div class="footer"> por <footer>._____________________HECHO
+
+        4.2.- OJO -> Ir al CSS y modificarlo ahí también.
+
+                    - Hay que sustituir los ".footer" por "footer".___________________HECHO
+
+        4.3.- Cambiarlo también en braisMoure.html__________________HECHO
+
+        4.4.- Cambiarlo también en chicaGeek.html___________________HECHO
+
+        4.5.- Cambiarlo también en dotCSV.html_____________________HECHO
+
+        4.6.- Cambiarlo también en elrubius.html______________________HECHO
+
+        4.7.- Cambiarlo también en lucasDalto.html___________________HECHO
+
+        4.8.- Cambiarlo también en mikecrack.html____________________HECHO
+
+        4.9.- Cambiarlo también en valeriaCorrales.html____________________HECHO
 
 
 -->
@@ -82,10 +140,48 @@ Cambios PENDIENTES de realizar:
 
 
 
+<!-- ERROR IMPORANTE (CORRECCIONES):
+ 
+1) HTML4 no tiene <footer> ni <header> (pero sí tiene <head>).
+
+
+2) NO CONFUNDIR <header> con <head>.
+
+    - HTML5 incluye una nueva etiqueta: <header>.
+
+    - Al inicio del ejercicio confundí <header> con <head> y por ello pensaba que <header> debía ir fuera de <body>.
+
+    - Tanto <header> como <footer> van dentro de <body> y SOLO aparecen en HTML5 (no están en HTML4). 
+
+
+3) Recuerda: en CSS en los selectores se usa:
+
+        a) El punto "." para las clases (class).
+        
+        b) La almohadilla "#" para los id (identificadores).
+
+
+4) Al cambiar <div class="header"> por <header>...
+
+    - El selector correcto en el CSS ya no es ".header" sino simpememente "header".
+
+
+5) En HTML5 el uso de <div> se reduce sólo a envoltorios genéricos que no tienen significado semántico.
+
+    - Cuando sí tenga un significado semántico concreto, usa la etiqueta adecuada: <header> <footer> <section> <article> <nav>. 
+
+-->
+
+
+
+
+
+
+
 
 <!-- 
 
-Dejo aquí el código HTML4 original del ejercicio para poder compararlo al estudiar:
+Dejo aquí el CÓDIGO HTML4 ORIGINAL del ejercicio para poder compararlo al estudiar:
  
     <!DOCTYPE html>
 
@@ -138,7 +234,7 @@ Dejo aquí el código HTML4 original del ejercicio para poder compararlo al estu
 
 <!-- 
 
-HAY QUE HACER LA CONVERSIÓN A HTML5:
+REPASO DEL TEMARIO DE HTML 5
 
 0) La idea clave de HTML5 es que los elementos HTML no están par dar formato, sino para indicar de forma clara qué TIPO DE CONTENIDO son (valor "semántico"). 
 

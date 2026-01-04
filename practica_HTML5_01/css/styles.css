@@ -31,7 +31,7 @@ body {
 
 
 
-.youtuber, .footer, .header {
+#youtuber, footer, header {
     /* 4- color de fondo */
     background-color: #424242;
 
@@ -50,7 +50,7 @@ body {
 
 
 
-.footer {
+footer {
     padding: 0px;
     color: white;
 }
@@ -60,9 +60,15 @@ body {
 .imageHome{
     border:black 4px solid;
     /* Para que la imagen salga redondeada: */
+    /* En este caso creo que la intención es que se redondeen los bordes, pero que no llegue a ser un círculo, sino un cuadrado con esquinas 
+    redondeadas.Recuerda: esta es la imagen de la web inicial.*/
     border-radius: 3%;
 
     /* 7- tamanyo */
+    /*Dado que en el enunciado no especifica un valor concreto, voy a hacer que tenga la misma altura que su contenedor y que la anchura se fije
+    de forma automática manteniendo la proporción de la imagen. Recuerda: esta es la imagen de la web inicial.*/
+    height: 100%;
+    width:auto;
 
     /* Se utiliza en imágenes y videos 
     para asegurarse de que siempre llenen 
@@ -73,10 +79,12 @@ body {
 
 
 
-.youtuber .images {
+#youtuber .images {
 
     /* 8- redondear la imagen*/
-    border-radius: 3%;
+    /* En este caso creo que quiere que la foto de cada youtuber se vea como un círculo, para ello el valor que hay que darle 
+    es "100%":  */
+    border-radius: 100%;
 
     width: 150px;
     height: 150px;    
@@ -90,7 +98,7 @@ body {
 
 
 
-.youtuber h2 {    
+#youtuber h2 {    
     color: white;
     font-size: 1.5em;
     margin: 10px 0;
@@ -98,7 +106,7 @@ body {
 
 
 
-.youtuber p {
+#youtuber p {
     color: white;
     font-size: 1em;
 }
@@ -145,6 +153,13 @@ li {
 
 #menu a:hover {
     /* 15- cambia el color al subrayado*/
+    /* "al pasar la mano por encima de los enlaces se ponen en rojo." */
+    color: #ff0000;
+    /* En caso de que quisiera cambiar el color ÚNICAMENTE a la línea de subrayado se haría así: 
+    text-decoration: underline;
+    text-decoration-color: red;    
+    */
+
 }
 
 
@@ -168,46 +183,70 @@ li {
 
 .button:hover {
     /* 16- cambia el color al boton*/
+    /* Se refiere al color de fondo de la caja del botón, y por ello es sencillo de hacer: */
+    /* Lo pongo en amarillo en lugar de rojo porque cuando la pantalla se haga pequeña ya se pondrá rojo.*/
+    background-color: #ffff00;
 }
 
 
 
 
 @media all and (max-width: 700px) {
-    .youtuber, .footer {
+    #youtuber, footer {
         /* 17- cambia el color al BORDE*/
+        /* "las líneas blancas se pondrán en rojo" */
+        border-color: #ff0000;
     }
+
     .button {
-        /* 18- cambia el color al boton*/        
+        /* 18- cambia el color al boton*/
+        /* Se refiere al color de fondo de la caja del botón, y por ello es sencillo de hacer: */
+        background-color: #ff0000; 
     }
+
     .button:hover {
         /* 19- cambia el color al boton*/
+        /* Se refiere al color de fondo de la caja del botón, y por ello es sencillo de hacer: */
+        background-color: #ffff00;
     }    
 }
 
 
 
+/* Cambios PENDIENTES de realizar 
 
-/* 
+1) "Al pasar la mano por encima de los enlaces se ponen en rojo."_____________________HECHO
 
-PENDIENTE de hacer: la modificación del index.html para convertirlo en HTML5 requiere realizar las correspondientes modificaciones del CSS:
+        - Se refiere al selector "#menu a:hover {".
 
-1) Dado que has sustituido el <div class="header"> por <header> y has sacado el <header> del <body>:
+2) "La pantalla ocupa el 90% del tamaño del navegador y debe estar centrada."__________________HECHO
 
-        1.1.- 
+        - Hecho en el selector de body.
 
-2) Dado que has eliminado el <div class="container">: 
+3) Al pasar la mano encima de “ver canal de youtube” cambia a otro color pon el que quieras._______________HECHO
 
-        2.1.- 
 
-3) Dado que has sustituido el <div class="youtuber"> por <section id = "youtuber">:
+4) Cuando el tamaño de la pantalla es menor de 700px:
 
-        3.1.- 
+        4.1.- Las líneas blancas se pondrán en rojo.___________________HECHO
+        
+        4.2.- El botón cambia a rojo.________________________HECHO
 
-4) Dentro del selector ".imageHome {" ha indicado "7-Tamanyo" como queriendo decir que he de ajustar el tamaño de la imagen.
+                    - Se refiere al selector ".button".
 
-        - Pero todavía no se qué es lo más apropiado para este caso. En el enunciado (pdf) no ha indicado ningún valor exacto para el tamaño de la 
-        imagen. 
+
+
+
+
+*/
+
+
+
+/*
+Notas: 
+
+1) el borde la imagen en la web inicial sigue siendo gris pese a que en su selector, ".imageHome{", he especificado el color negro del borde.
+
 
 */
 
@@ -215,10 +254,8 @@ PENDIENTE de hacer: la modificación del index.html para convertirlo en HTML5 re
 
 
 
-
-
-
 /*
+
 NOTA: aclaraciones sobre algunas propiedades:
 
 1.- box-shadow
