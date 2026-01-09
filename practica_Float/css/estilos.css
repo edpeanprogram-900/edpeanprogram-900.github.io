@@ -277,12 +277,187 @@ p {
 
 Repaso de las herramientas a emplear:
 
-1) Propiedad position
+1) Propiedad___position -> VALORES:
+
+        1.- position: static;
+                - Es el valor inicial por defecto.
+
+        2.- position: relative;
+
+        3.- position: absolute;
+
+        4.- position: fixed;
+
+        5.- position: inherit;
+
+        6.- Ojo -> hay otro valor posible que todavía no hemos dado en clase (y que por lo tanto todavía no debemos usar) -> position: sticky;
+
+
+2) Propiedades___top, right, bottom y left
+
+        1.- IMPORTANTE: si el selector tiene el valor static en su propiedad position, entonces los valores de las propiedades top, right, bottom y left
+        serán ignorados por completo. 
+
+        2.- IMPORTANTE: si el selector no le está dando ningún valor a la propiedad position, entonces está tendrá su valor por defecto, que es static
+        y por lo tanto los valores de las propiedades top, right, bottom y left serán ignorados por completo. 
+
+        3.- Valores posibles:
+                  a) unidad de medida. -> top: 1em;
+                  b) porcentaje. -> right: 20%;
+                  c) auto.  -> ej: bottom: auto;
+                  d) inherit. -> ej: left: inherit;
+
+
+3) Propiedad___float
+
+        1.- Es el posicionamiento más utilizado (y al mismo tiempo es el más difícil de comprender al principio). La mayoría de las páginas web complejas emplean el 
+        posicionamiento float.
+
+        2.- La propiedad float posiciona una caja moviéndola todo lo posible a la izquierda o derecha de su posición original.
+
+        3.- VALORES posibles:
+
+                    3.1.- float: left;
+
+                    3.2.- float: right;
+
+                    3.3.- float: none;
+
+
+4) Propiedad___outline
+
+
+5) Propiedad___clear
+
+        1.- Indica el lado del elemento que no debe ser adyacente a ninguna caja flotante. La propiedad clear es imprescindible cuando se crean las estructuras de las 
+        páginas web complejas.
+
+        2.- VALORES posibles:
+
+                    2.1.- clear: none;
+
+                    2.2.- clear: left;
+
+                    2.3.- clar: right;
+
+                    2.4.- clear both;
+
+                    2.5.- clear: inherit;
+
+
+6) propiedad___display
+
+        1.- Permite controlar la forma de visualizar un elemento e incluso ocultarlo.
+
+        2.- VALORES posibles: inline | block | none | list-item | run-in | inline-block | table | inline-table | table-row-group | table-header-group | 
+        table-footer-group | table-row | table-column-group | table-column | table-cell | table-caption | inherit
+
+        3.- Valor inicial -> display: inline;
+
+
+7) propiedad___visibility
+
+        1.- Permite hacer visibles e invisibles a los elementos.
+
+        2.- VALORES posibles: 
+
+                    2.1.- visibility: visible;
+
+                    2.2.- visibility: hidden;
+
+                    2.3.- visibility: collapse;
+
+                    2.4.- visibility: inherit;
+        
+        3.- Valor inicial -> visibility: visible;
+
+
+
+8) Propiedad___overflow
+
+        1.- Permite controlar los contenidos sobrantes de un elemento.
+
+        2.- VALORES posibles:
+
+                    2.1.- overflow: visible;
+
+                    2.2.- overflow: hidden;
+
+                    2.3.- overflow: scroll;
+
+                    2.4.- overflow: auto;
+
+                    2.5.- overflow: inherit;
+        
+        3.- Valor inicial: overflow: visible;
+
+
+
+9) Propiedad___z-index
+
+        1.- Establece el nivel tridimensional en el que se muestra el elemento (tiene lógica ya que el eje Z suele referirse a la profundidad). Esto determina qué 
+        elemento estará por encima si solapan.
+
+        2.- VALORES posibles:
+
+                    2.1.- z-index: auto;
+
+                    2.2.- z-index: numero;
+
+                    2.3.- z-index: inherit;
+
+
+10) Propiedad___color    (para el texto).
+
+
+11) Propiedad___font-family     (para el texto). 
+
+
+12) Propiedad___font-size     (para el texto).
+
+
+13) Propiedad___font-weight     (para el texto).
+
+
+14) Propiedad___font-style     (para el texto).
+
+
+15) Propiedad___font-variant    (para el texto).
+
+
+16) Propiedad___font      (para el texto).
+
+        1.- Es una propiedad shorthand (= que abrevia el código y agrupa varias propiedades [que ya hemos visto anteriormente] en una sola).
+
+
+17) Propiedad___text-align       (para texto).
+
+
+18) Propiedad___line-height       (para texto).
+
+
+19) Propiedad___text-decoration       (para texto).
+
+
+20) Propiedad___text-transform         (para texto). 
+
+
+
+
+*/
 
 
 
 
 
 
+
+
+
+
+/*
+
+Los conocimientos necesarios para realizar esta práctica son los de el pdf 5.1 (y también los del pdf 4.1). Además, en la clase del 2026_01_08 se dió la explicación
+del pdf 5.1 y tomé apuntes (útiles para tener una breve visión general del pdf 5.1).
 
 */
