@@ -121,63 +121,76 @@ p {
 
 #imageLeft {
   /* "Punto 2: La capa de las imágenes debe aparecer a la izquierda de la pantalla. Necesitarás 1 instrucción."*/
-  /*1: */
+  /*1: Empleo float para que el contenido posterior pueda fluir a su alrededor:*/
+  float: left; 
   
   text-align: center;
   padding-bottom: 5px;
 }
 
-#imageRight {
-  /*
-  Punto 2: La capa de las imagenes debe aparecer a la derecha de la pantalla
-  */
 
-  /* necesitas 1 instruccion*/
-  /*1: */
+#imageRight {
+  /* "Punto 2: La capa de las imagenes debe aparecer a la derecha de la pantalla. Necesitarás 1 instrucción:" */
+  /*1: Empleo float para que el contenido posterior pueda fluir a su alrededor: */
+  float: right;
+
   text-align: center;
   padding-bottom: 5px;
 }
 
-#textMain {
-  /*
-  Punto 3: Para que la capa de la imagen y el float NO sigan la dinamica de la seccion anterior hay que romperla
-  */
 
-  /* necesitas 1 instruccion*/
-  /*1: */
+#textMain {
+  /* "Punto 3: Para que la capa de la imagen y el float NO sigan la dinámica de la sección anterior hay que romperla. Necesitarás 1 instrucción." */
+  /* Aquí se refiere al hecho de que como los elementos anteriores tienen la propiedad float, los elementos posteriores fluirán ocupando los 
+  espacios junto a ellos. Para evitar que se produzca ese flujo (solicitado por el propio enunciado) podemos usar la propiedad clear:*/
+  /* En este caso, como queremos romper con todos los floats anteriores, le damos el valor "both": */
+  clear: both;
 }
 
-#imageToHide {
-  /*
-  Punto 3: La capa de las imagenes debe aparecer a la izquierda de la pantalla
-  */
 
-  /* necesitas 1 instruccion*/
-  /*1: */  
+
+#imageToHide {
+  /* "Punto 3: La capa de las imagenes debe aparecer a la izquierda de la pantalla. Necesitarás 1 instrucción. */
+  /*1: Empleo float para que el contenido posterior pueda fluir a su alrededor: */
+  float: left;
+
   text-align: center;
   margin-bottom: 40px;
 }
+
 
 #textCookie {
   text-align: center;
 }
 
-#cookieEU {
-  /*
-  Punto 4: La capa esta posicionada casi al centro de la pantalla. Se diferencia del menu y del footer en que NO se queda fija al hacer scroll de la pagina.
-  */
 
-  /* necesitas 4 instrucciones. 3 son distancia a los bordes :)*/
-  /*1: */  
-  /*2: */    
-  /*3: */    
-  /*4: */    
+
+#cookieEU {
+  /* "Punto 4: La capa está posicionada casi al centro de la pantalla. Se diferencia del menu y del footer en que NO se queda fija al hacer 
+  scroll de la página. Necesitarás 4 instrucciones. 3 de ellas son distancia a los bordes :)" */
+  /* Nos encontramos dentro del selector que hace referencia a la ventana emergente de aceptar las cookies de la web y ese es justo el ejemplo
+  que se usó en clase para explicar la utilidad de: "position: absolute;" */
+  /*1: Empleo "position: absolute;" para sacar al elemento del flujo normal de la web (posición fija):*/  
+  position: absolute;
+  /*2: Empleo top para posicionarlo con respecto a <body> (ya que no tiene padres con position distinta de static con respecto a los cuales 
+  posicionarse: */  
+  top: 20%;  
+  /*3: Empleo left:*/    
+  left: 30%;
+  /*4: Empleo right (así termino de especificar bien el espacio ocupado por la caja y no corro el riesgo de que quede descentrada u ocupe más 
+  espacio del desado):*/
+  right: 30%;  
+
   border:2px solid red;
   background-color: white;
   margin-bottom: 5px;
   padding-bottom: 5px;
   box-shadow: 2px 2px 50px black;
 }
+
+
+/* 2026_01_11  ->  me he quedado a mitad de la tarea: VOY POR AQUÍ*/
+
 
 #textOverflow {
   /*
@@ -195,6 +208,8 @@ p {
   padding: 20px;
   margin-right: 20px;
 }
+
+
 
 #textCentral {
   margin-top: 10px;
@@ -269,9 +284,7 @@ p {
 
 @media all and (max-width: 300px) {
   #header {
-    /*
-    Cambio el margen para que no lo tape el menu
-    */
+    /* Cambio el margen para que no lo tape el menu. */
     margin-top: 100px;
   }
 }
@@ -326,6 +339,7 @@ ANOTACIONES sobre cómo he resuleto ciertas cosas:
 
 
 
+
 2) ANCHURA DEL <footer>
 
         - Es importante asingarle una ANCHURA del 100% al <footer> para que quede bien estéticamente. 
@@ -346,7 +360,124 @@ ANOTACIONES sobre cómo he resuleto ciertas cosas:
                     - Es decir, si no pusieras "width: 100%;", su longitud dependería de lo extenso que fuera su contenido. Y si su contenido es
                     muy breve quedaría solo como un rectángulo pequeño (quedaría mal estéticamente). 
 
+
+
+
+3) float  vs.  position
+
+        - "La capa de las imágenes debe aparecer a la izquierda de la pantalla. Necesitarás 1 instrucción."
+
+        - "float: left;" hace que:
+        
+                    1.- La caja se pegue a la izquierda.
+
+                    2.- El contenido posterior FLUYA A SU ALREDEDOR (a no ser que se evite que eso suceda empleando en esos elementos 
+                    posteriores la propiedad "clear").
+
+        - "position: absolute/relative/fixed;" junto con "left: 0;" hace que:
+
+                    1.- La caja se coloque en una posición exacta.
+
+                    2.- El elemento QUEDA FUERA DEL FLUJO normal del documento.
+
+                                    - En consecuencia, otros elementos pueden quedar "debajo" o "encima" de él.
+        
+
+
+
+4) clear: both;
+
+        - "Punto 3: Para que la capa de la imagen y el float NO sigan la dinámica de la sección anterior hay que romperla. Necesitarás 1 
+        instrucción."
+
+        - Aquí se refiere al hecho de que como los elementos anteriores tienen la propiedad float, los elementos posteriores fluirán ocupando los 
+        espacios junto a ellos. Para evitar que se produzca ese flujo (solicitado por el propio enunciado) podemos usar la propiedad clear.
+
+        - En este caso, como queremos romper con todos los floats anteriores, le damos el valor "both" -> "clear: both;".
+
+                      - "both" significa "AMBOS" y se refiere a romper tanto los "float: right" como los "float: left".
+
+
+
+
+
+5) "position: absolute"   vs.   "position: relative".
+
+        - "Punto 4: La capa está posicionada casi al centro de la pantalla. Se diferencia del menu y del footer en que NO se queda fija al hacer 
+        scroll de la página. Necesitarás 4 instrucciones. 3 de ellas son distancia a los bordes :)"
+
+        - Leyendo ese enunciado ya sabemos que NO se ha de usar "position: fixed;" ya que indica claramente que este elemento no debe quedarse
+        fijo al hacer scroll.
+
+
+        5.1.- "position: relative"
+
+                    - Permite mover el elemento con respecto a su POSICIÓN ORIGINAL en el documento.
+                    
+                                  - Es decir, con respecto a la posición que le ha tocado al "leer" todos los elementos del HTML. Por ejemplo, 
+                                  si va precedido de un <header>, este influye en cuál será su "posición original" en el documento).
+
+                    - IMPORTANTE: el espacio que ocupaba anteriormente el elemento (es decir, su "POSICIÓN ORIGINAL") SIGUE RESERVADO y no puede 
+                    ser ocupado. Es decir, dicho espacio permanecerá VACÍO (EL RESTO de elementos NO PUEDEN OCUPARLO al desplazarse como 
+                    consecuencia de un float). 
+
+                    - ÚTIL para hacer ajustes pequeños SIN QUE CAMBIE EL FLUJO de los elementos. 
+
+
+        5.2.- "position: absolute"
+
+                    - IMPORTANTE: SACA al elemento DEL FLUJO NORMAL DEL DOCUMENTO.
+
+                    - Su posición se determina con respecto a:
+
+                              a) El elemento más cercano que tenga "position" con un valor distinto de "static". 
+
+                              b) Si ningún elemento cumple esa condición, su posición se determina con respecto al <body>. 
+
+                    - ÚTIL para colocar elementos en posiciones exactas (empleando top, left, right y bottom).
+
+                                  - Ejemplo: Colocar el cuadro flotante de aceptar las cookies de una página web. 
+
+
+        - Este enunciado se encuentra dentro del selector llamado "#CookieEU", lo cuál deja bastante claro que lo óptimo aquí es usar 
+        "position: absolute".
+
+        - "#CookieEU" está directamente dentro de <body> (es algo que podemos verificar rápidamente mirando el index.html). No tiene ningún padre
+        distinto de <body> que tenga "position" con un valor distinto de "static". Por ello "#CookieEU" se posicionará con respecto a TODA LA 
+        PÁGINA (<body>). 
+
+
+
+
+6) Especificar el espaciado IZQUIERDO y también el DERECHO al colocar una ventana emergente empleando "position: absolute".
+
+        - "Punto 4: La capa está posicionada casi al centro de la pantalla. Se diferencia del menu y del footer en que NO se queda fija al hacer 
+        scroll de la página. Necesitarás 4 instrucciones. 3 de ellas son distancia a los bordes :)"
+
+        - A primera vista parece que con "position: absolute;" y luego "top: 20%;" y "left: 30%" ya sería suficiente.
+
+                    - Pero si solo pones top y left el <div> se desplazará hacia abajo y hacia la derecha desde su posición de referencia, pero:
+
+                                - No hay control sobre el lado derecho.
+
+                                          - Y en consecuencia, el navegador mantendrá el ANCHO ORIGINAL del <div>. 
+
+                                          - Eso implica que la caja:
+
+                                                      1.- Puede quedar DESCENTRADA horizontalmente.
+
+                                                      2.- Ocupar MÁS ESPACIO del deseado o MENOS ESPACIO del deseado (dependiendo de su contenido). 
+
+                                        
+
+
+
+99) En los enunciados presentes en el propio CSS pasa del "punto 5" al "punto 7" (dejo esta nota para que me quede claro que no es que yo haya 
+borrado por error parte del código, sino que se produce ese salto en la numeración). 
+
 */
+
+
 
 
 
@@ -422,8 +553,8 @@ anteriores). Por ello incluyo aquí un REPASO (listado) con las herramientas vis
 
 5) Propiedad___clear
 
-        1.- Indica el lado del elemento que no debe ser adyacente a ninguna caja flotante. La propiedad clear es imprescindible cuando se crean las estructuras de las 
-        páginas web complejas.
+        1.- Indica el lado del elemento que no debe ser adyacente a ninguna caja flotante. La propiedad clear es imprescindible cuando se crean las 
+        estructuras de las páginas web complejas.
 
         2.- VALORES posibles:
 
@@ -442,8 +573,8 @@ anteriores). Por ello incluyo aquí un REPASO (listado) con las herramientas vis
 
         1.- Permite controlar la forma de visualizar un elemento e incluso ocultarlo.
 
-        2.- VALORES posibles: inline | block | none | list-item | run-in | inline-block | table | inline-table | table-row-group | table-header-group | 
-        table-footer-group | table-row | table-column-group | table-column | table-cell | table-caption | inherit
+        2.- VALORES posibles: inline | block | none | list-item | run-in | inline-block | table | inline-table | table-row-group | 
+        table-header-group | table-footer-group | table-row | table-column-group | table-column | table-cell | table-caption | inherit
 
         3.- Valor inicial -> display: inline;
 
@@ -488,8 +619,8 @@ anteriores). Por ello incluyo aquí un REPASO (listado) con las herramientas vis
 
 9) Propiedad___z-index
 
-        1.- Establece el nivel tridimensional en el que se muestra el elemento (tiene lógica ya que el eje Z suele referirse a la profundidad). Esto determina qué 
-        elemento estará por encima si solapan.
+        1.- Establece el nivel tridimensional en el que se muestra el elemento (tiene lógica ya que el eje Z suele referirse a la profundidad). 
+        Esto determina qué elemento estará por encima si solapan.
 
         2.- VALORES posibles:
 
