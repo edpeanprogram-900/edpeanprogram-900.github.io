@@ -120,16 +120,17 @@ p {
 
 
 #imageLeft {
-  /* "Punto 2: La capa de las imagenes debe aparecer a la izquierda de la pantalla. Necesitarás 1 instruccion."*/
+  /* "Punto 2: La capa de las imágenes debe aparecer a la izquierda de la pantalla. Necesitarás 1 instrucción."*/
   /*1: */
+  
   text-align: center;
   padding-bottom: 5px;
 }
 
 #imageRight {
- /*
+  /*
   Punto 2: La capa de las imagenes debe aparecer a la derecha de la pantalla
- */
+  */
 
   /* necesitas 1 instruccion*/
   /*1: */
@@ -147,9 +148,9 @@ p {
 }
 
 #imageToHide {
- /*
+  /*
   Punto 3: La capa de las imagenes debe aparecer a la izquierda de la pantalla
- */
+  */
 
   /* necesitas 1 instruccion*/
   /*1: */  
@@ -162,9 +163,9 @@ p {
 }
 
 #cookieEU {
- /*
+  /*
   Punto 4: La capa esta posicionada casi al centro de la pantalla. Se diferencia del menu y del footer en que NO se queda fija al hacer scroll de la pagina.
- */
+  */
 
   /* necesitas 4 instrucciones. 3 son distancia a los bordes :)*/
   /*1: */  
@@ -179,9 +180,9 @@ p {
 }
 
 #textOverflow {
- /*
+  /*
   Punto 5: La capa tiene una barra de scroll vertical para que podamos leer el texto que no cabe en el tamaño. Solo vertical, no horizontal
- */
+  */
 
   /* necesitas 2 instruccion*/
   /*1: */  
