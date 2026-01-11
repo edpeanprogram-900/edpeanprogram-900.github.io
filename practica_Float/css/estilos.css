@@ -1,4 +1,5 @@
 
+
 *{
   margin: 0px auto;
 }
@@ -43,13 +44,16 @@ p {
 }
 
 #menu {
-  /*
-  Punto 1: Barra de menu siempre estara 
-  */
-  /* necesitas 3 instrucciones*/
-  /*1: */
-  /*2: */
-  /*3: */
+  /* "Punto 1: Barra de menu siempre estara. Para ello necesitarás 3 instrucciones." */
+  /* Se refiere a que la barra de menú siempre estará visible en la parte superior de la página, aunque hagas scroll.*/
+  /* Al final del CSS he explicado porque solo con poner "position: fixed;" no es suficiente. */
+  /*1: Primero hago que el menú quede fijo en pantalla y no desaparezca al hacer scroll:*/
+  position: fixed;
+  /*2: Luego especifico que debe quedar pegado al margen superior:*/
+  top: 0;
+  /*3: Luego especifico que debe quedar pegado al borde izquierdo de la pantalla:*/
+  left: 0;
+
   text-align: center;  
   background-color: #097054;
   border: 1px solid #FF9900;
@@ -69,22 +73,27 @@ p {
 }
 
 #menu li a:hover{
-  /*
-  Punto 1: Los enlaces cambian de color de fondo y estan subrayados de color azul
-  */
-  /* necesitas 2 instrucciones*/
-  /*1: */
-  /*2: */
+  /* "Punto 1: Los enlaces cambian de color de fondo y están subrayados de color azul. Necesitarás 2 instrucciones."*/
+  /*1: Primero cambio el color de fondo:*/
+  background-color: #ff0000;
+  /*2: Después cambio el color de los enlaces al color indicado (azul):*/
+  color: #0000ff;
+  /* Ha dicho que están subrayados (en España hay bastante confusión porque usamos resaltar y subrayar de forma indistinta) así que por 
+  si acaso añado también esto (que además es una de las propiedades que hemos visto en el Tema 5.1): */
+  text-decoration: underline;
 }
 
+
+  
 #footer{
-  /*
-  Punto 6: Barra de pie de pagina siempre estara 
-  */
-  /* necesitas 3 instrucciones*/
-  /*1: */
-  /*2: */
-  /*3: */
+  /* "Punto 6: Barra de pie de página siempre estará. Necesitarás 3 instrucciones."*/
+  /* Esto es muy parecido a lo que hicimos con el menú para que se quedará en una posición fija al hacer scroll.*/
+  /*1: Primero lo fijo a la ventana para que no se mueva al hacer scroll:*/
+  position: fixed;
+  /*2: Después le indico que debe quedar pegado al límite inferior de la ventana:*/
+  bottom: 0;
+  /*3: Para que el color de fondo del <footer> cubra toda la línea inferior (y así quede bien estéticamente):*/
+  width:100%;
   
   background-color: #097054;
   text-align: center;
@@ -92,6 +101,7 @@ p {
   border-top: 5px solid black;
   clear: both;
 }
+
 
 #footer a{
   color: white;
@@ -110,11 +120,7 @@ p {
 
 
 #imageLeft {
- /*
-  Punto 2: La capa de las imagenes debe aparecer a la izquierda de la pantalla
- */
-
-  /* necesitas 1 instruccion*/
+  /* "Punto 2: La capa de las imagenes debe aparecer a la izquierda de la pantalla. Necesitarás 1 instruccion."*/
   /*1: */
   text-align: center;
   padding-bottom: 5px;
@@ -132,9 +138,9 @@ p {
 }
 
 #textMain {
-/*
+  /*
   Punto 3: Para que la capa de la imagen y el float NO sigan la dinamica de la seccion anterior hay que romperla
- */
+  */
 
   /* necesitas 1 instruccion*/
   /*1: */
@@ -272,10 +278,96 @@ p {
 
 
 
+/* ################################################################################################################################ */
+
+
+
+
+/*
+
+ANOTACIONES sobre cómo he resuleto ciertas cosas:
+
+1) POSICIÓN ORIGINAL vs. POSICIÓN ÓPTIMA
+
+        - "La barra de menu siempre estará. Para ello necesitarás 3 instrucciones." 
+
+        - Se refiere a que la barra de menú siempre estará visible en la parte superior de la página, aunque hagas scroll.
+ 
+        - La estrategia es la siguiente: 
+
+                    1.- Empleando "position: fixed;"
+
+                                    - Logras que el menú no se mueva al hacer scroll. 
+
+                    2.- Empleando "top: 0;"
+
+                                    - Logras que el menú se sitúe arriba del todo. 
+
+                    3.- Empleando "left: 0;"
+
+                                    - El menú queda pegado al borde lateral. 
+
+
+        - Si no pusieras top y left el menú quedaría fijado en su "POSICIÓN ORIGINAL". 
+        
+                    - Y este es el concepto clave para entender por qué es tan importante en este caso NO limitarse simplemente a poner 
+                    "position: fixed", sino añadir también top y left.
+
+                    - La POSICIÓN ORIGINAL del menú es relativamente IMPREDECIBLE porque depende del "flujo normal del documento". Y tratando 
+                    de entender el concepto de "posición original" hemos topado con el concepto "flujo normal del documento". 
+
+                    - ¿Qué quiere decir que la posición original del menú depende del FLUJO NORMAL DEL DOCUMENTO? Quiere decir que depende del
+                    <header>, de los márgnes del <body>, etc (dicho así se entiende mejor). Es decir, depende del resto de elementos adyacentes
+                    en el index.html. 
+
+                    - CONCLUSIÓN: añadiendo el top y el left nos aseguramos de que el menú ocupa la posición óptima para la visualización de los 
+                    contenidos de la página. Recuerda: "position: fixed;" NO MUEVE, solo fija en pantalla. 
+
+
+
+2) ANCHURA DEL <footer>
+
+        - Es importante asingarle una ANCHURA del 100% al <footer> para que quede bien estéticamente. 
+
+        - "Punto 6: Barra de pie de página siempre estará. Necesitarás 3 instrucciones."
+
+        - A primera vista parece que vaya a ser igual que con el menú: position: fixed;  +  top  +  left, pero no es el caso.
+
+        - Es cierto que hay que usar "position: fixed;".
+
+        - También es cierto que hay que usar "bottom: 0;".
+
+        - Pero en este caso no hay que usar left, sino width.
+
+                    - ¿Por qué? Pues porque "width: 100%;" nos garantiza que el <footer> será una BARRA COMPLETA de forde a borde y no solo 
+                    un rectángulo pequeño pegado abajo. 
+
+                    - Es decir, si no pusieras "width: 100%;", su longitud dependería de lo extenso que fuera su contenido. Y si su contenido es
+                    muy breve quedaría solo como un rectángulo pequeño (quedaría mal estéticamente). 
+
+*/
+
+
+
+
+
+
+
+
+
+/* ############################################################################################################################## */
+
+
+
+
+
 
 /* 
 
-Repaso de las herramientas a emplear:
+REPASO TEMA 5.1:
+
+Esta tarea la mandó justo después de dar el Tema 5.1, de lo cual se deduce que las herramientas a emplear son las dadas en dicho tema (y en temas
+anteriores). Por ello incluyo aquí un REPASO (listado) con las herramientas vistas en el TEMA 5.1:
 
 1) Propiedad___position -> VALORES:
 
@@ -295,11 +387,11 @@ Repaso de las herramientas a emplear:
 
 2) Propiedades___top, right, bottom y left
 
-        1.- IMPORTANTE: si el selector tiene el valor static en su propiedad position, entonces los valores de las propiedades top, right, bottom y left
-        serán ignorados por completo. 
+        1.- IMPORTANTE: si el selector tiene el valor static en su propiedad position, entonces los valores de las propiedades top, right, bottom 
+        y left serán ignorados por completo. 
 
-        2.- IMPORTANTE: si el selector no le está dando ningún valor a la propiedad position, entonces está tendrá su valor por defecto, que es static
-        y por lo tanto los valores de las propiedades top, right, bottom y left serán ignorados por completo. 
+        2.- IMPORTANTE: si el selector no le está dando ningún valor a la propiedad position, entonces está tendrá su valor por defecto, que es 
+        static y por lo tanto los valores de las propiedades top, right, bottom y left serán ignorados por completo. 
 
         3.- Valores posibles:
                   a) unidad de medida. -> top: 1em;
@@ -310,8 +402,8 @@ Repaso de las herramientas a emplear:
 
 3) Propiedad___float
 
-        1.- Es el posicionamiento más utilizado (y al mismo tiempo es el más difícil de comprender al principio). La mayoría de las páginas web complejas emplean el 
-        posicionamiento float.
+        1.- Es el posicionamiento más utilizado (y al mismo tiempo es el más difícil de comprender al principio). La mayoría de las páginas web 
+        complejas emplean el posicionamiento float.
 
         2.- La propiedad float posiciona una caja moviéndola todo lo posible a la izquierda o derecha de su posición original.
 
@@ -438,26 +530,27 @@ Repaso de las herramientas a emplear:
 
 19) Propiedad___text-decoration       (para texto).
 
+        1.- VALORES posibles:
+
+                  1.1.- none
+
+                  1.2.- underline
+
+                  1.3.- overline
+
+                  1.4.- line-through
+
+                  1.5.- blink
+
+                  1.6.- inherit
+
 
 20) Propiedad___text-transform         (para texto). 
 
 
-
-
-*/
-
-
-
-
-
-
-
-
-
-
-/*
-
-Los conocimientos necesarios para realizar esta práctica son los de el pdf 5.1 (y también los del pdf 4.1). Además, en la clase del 2026_01_08 
+99) Los conocimientos necesarios para realizar esta práctica son los de el pdf 5.1 (y también los del pdf 4.1). Además, en la clase del 2026_01_08 
 se dió la explicación del pdf 5.1 y tomé apuntes (útiles para tener una breve visión general del pdf 5.1).
 
+
 */
+
