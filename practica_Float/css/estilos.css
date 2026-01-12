@@ -63,6 +63,10 @@ p {
   border: 1px solid #FF9900;
   font-family: 'Pacifico', cursive;
   font-size: 1.2em;
+
+  /* No me sale centrado, así que voy a añadir esto para que el menú ocupe todo el ancho de la pantalla. */
+  width: 100%;
+
 }
 
 #menu a{
@@ -76,6 +80,7 @@ p {
   padding-left: 5px;  
 }
 
+
 #menu li a:hover{
   /* "Punto 1: Los enlaces cambian de color de fondo y están subrayados de color azul. Necesitarás 2 instrucciones."*/
   /*1: Primero cambio el color de fondo:*/
@@ -88,7 +93,7 @@ p {
 }
 
 
-  
+
 #footer{
   /* "Punto 6: Barra de pie de página siempre estará. Necesitarás 3 instrucciones."*/
   /* Esto es muy parecido a lo que hicimos con el menú para que se quedará en una posición fija al hacer scroll.*/
@@ -111,6 +116,7 @@ p {
   color: white;
   text-decoration: none;
 }
+
 
 #footer a:hover{
   /* Dado que en el enunciado nº6 del pdf de la tarea dice "Igual que el 1" refiriéndose a que hagas en el <footer> lo mismo que en el #menu, voy 
@@ -173,7 +179,6 @@ p {
 }
 
 
-
 #cookieEU {
   /* "Punto 4: La capa está posicionada casi al centro de la pantalla. Se diferencia del menu y del footer en que NO se queda fija al hacer 
   scroll de la página. Necesitarás 4 instrucciones. 3 de ellas son distancia a los bordes :)" */
@@ -218,7 +223,7 @@ p {
 
 
 #textCentral {
-  /*margin-top: 10px; -> esto es redundante con el margin de más abajo, por eso lo comento. */
+  /* margin-top: 10px; -> esto es redundante con el margin de más abajo, por eso lo comento. */
   padding: 15px;
   border: 5px dashed black;
   background-color: white;
@@ -246,20 +251,17 @@ p {
 @media all and (max-width: 500px) {
   #imageLeft {
     /* "Punto 7.1: Barra de menu siempre estará. Necesitarás 1 instrucción." */
-    /*1: Para que la barra de menú no desaparezca al hacer scroll usamos "position: fixed;" */
-    position: fixed;
-
+    /*1: Pero esto no es la barra de menú, asi que aquí lo de "position: fixed;" no va.*/
+   
     text-align: center;
     padding-bottom: 5px;
   }
 
 
-
   #imageRight {
     /* "Punto 7.1: Barra de menu siempre estará. Necesitarás 1 instrucción: */
-    /*1: Para que la barra de menú no desaparezca al hacer scroll usamos "position: fixed;" */
-    position: fixed;
-
+    /*1: Pero esto no es la barra de menú, asi que aquí lo de "position: fixed;" no va.*/
+   
     text-align: center;
     clear: both;
     padding-bottom: 5px;
@@ -267,19 +269,35 @@ p {
   
 
   #textCentral {
+    /* El elemento #textCentral no se va hacia abajo cuando la pantalla es de 500px o menos (tal y como muestran las ilustraciones del pdf
+    del enunciado). Para remediarlo limpio los efectos de los float de las imagenes (empleando clear):*/
+    clear: both;
+    
     margin: 0px 0px ;
   }
   
 
   #imageToHide {
     /* "Punto 7.2: Barra de menu siempre estará. Necesitarás 1 instrucción." */
-    /*1: Para que la barra de menú no desaparezca al hacer scroll usamos "position: fixed;" */
-    position: fixed;
-
+    /*1: Pero esto no es la barra de menú, asi que aquí lo de "position: fixed;" no va.*/
+   
     text-align: center;
     margin-bottom: 40px;
   }
   
+
+  /* El elemento #textCentral no se va hacia abajo cuando la pantalla es de 500px o menos (tal y como muestran las ilustraciones del pdf
+  del enunciado). Para remediarlo creo el siguiente selector y empleo "float: none;"*/
+  #imageLeft, #imageRight, #imageToHide {
+    /* Para que ya no haya float que haga que #textCentral suba hacia arriba ocupando espacios:*/
+    float: none;
+    /* Para asegurar que ocupen toda la línea y así se coloquen verticalmente tal y como pide el enunciado:*/
+    display: block;
+    /* Los centro horizontalmente:*/
+    margin-left: auto;
+    margin-right: auto;
+  }
+
 
   #textOverflow {
     margin-right: 0px;
@@ -289,7 +307,9 @@ p {
   #header {
     margin-top: 50px;
   }
- 
+
+
+
 }
 
 
@@ -299,6 +319,79 @@ p {
     margin-top: 100px;
   }
 }
+
+
+
+/* ############################################################################################################################### */
+
+/*
+
+LOS PROBLEMAS FINALES (Y DE MAYOR COMPLEJIDAD):
+
+Ya estoy en la fase final, he cumplido con todo lo que decían tanto las anotaciones del CSS como los enunciados del PDF. Ahora simplemente
+habró la web con el Live Server para comprobar que se comporta como es esperado:
+
+1.- El contenido de #menu no me sale centrado. 
+
+        - Aquí es CLAVE averiguar cual es la causa real. Y me costó mucho averiguarlo, lo dejo anotado para tenerlo en cuenta para futuras 
+        prácticas: no se trata solo del text-align: center y el display: block, también has de ASEGURARTE de que esa caja OCUPA todo el ANCHO
+        de la PANTALLA.
+
+        - Y eso se hace con "width: 100%;"
+
+ 
+2.- Al minimizar la ventana y estrecharla no se comporta como muestran las imagenes del pdf de la tarea.
+
+        - El elemento #textCentral no se va hacia abajo cuando la pantalla es de 500px o menos (tal y como muestran las ilustraciones del pdf
+        del enunciado).
+
+        - ¿Cuál es la causa?
+
+        2.1.- Me ha costado bastante, pero ya lo he averiguado. La CLAVE aquí es acordarte de que en esas imágenes usaste FLOAT y en saber las
+        consecuencias que eso tiene. 
+
+                    - Al tener esas imágenes la propiedad "float: right;" y "float: left;" hacen que los elementos posteriores LLENEN los huecos 
+                    dejados por estas imágenes. Y eso afecta al elemento #textCentral.
+
+                    - Ahora que ya sé la explicación, su comportamiento visual es muy lógico: se estira tratando de ocupar un hueco cada vez más 
+                    estrecho entre las dos imágenes. 
+
+                    - Solución: de primeras se me viene a la mente la propiedad clear, pero dado que solo queremos que se aplique cuando la ventana
+                    se hace de 500px o menos, es mejor emplear "float: none;". Eso sí, hay que acordarse de aplicarlo sobre todas esas imágenes. 
+
+        - Finalmente lo resuelvo así:
+              #imageLeft, #imageRight, #imageToHide {
+                    float: none;  ->  Para que ya no haya float que haga que #textCentral suba hacia arriba ocupando espacios.
+                    display: block;  ->  Para asegurar que ocupen toda la línea y así se coloquen verticalmente tal y como pide el enunciado.
+                    margin-left: auto;   ->  Los centro horizontalmente (requiere 2 instrucciones).
+                    margin-right: auto;  ->  Los centro horizontalmente (requiere 2 instrucciones).
+              }
+              
+        2.2.- OJO -> eso no termina de resolverlo. Me ha costado bastante averiguar qué es lo que pasaba. Faltaba un matiz: #imageLeft e 
+        #ImageRight han flotado antes (float: left/right) y aunque en el @media ya no floten visualmente, el flujo del documento queda 
+        "contaminado" por decirlo de alguna manera. Mientras no se aplique una limpieza de los efectos de los float (que pueden perdurar) 
+        los elementos posteriores pueden seguir viéndose afectados. 
+
+                    - Es algo que me parece sumamente contraintuitivo, pero sin duda he de tenerlo muy muy en cuenta para futuras prácticas. 
+
+                    - Lo resuelvo añadiendo esto: 
+
+
+        2.3.- OJO -> tenía un fallo ortográfico: había escrito #ImageRight en lugar de #imageRight.
+
+                    - Y lo más peligroso de ese error es que Visual Studio no te subraya eso como un error así que es muy fácil volverse
+                    loco y no encontrar el fallo. Mare meua. 
+
+
+        2.4.- Me he llevado un buen susto porque al minimizarlo seguían sin colocarse los elementos de forma vertical y #textCentral seguía 
+        haciendose muy estirado entre las imágenes.
+
+                    - Al final era porque no había llegado todavía a la barrera de los 500px y el contendio de @media todavía no podía entrar
+                    en acción. Tenerlo en cuenta para futuras prácticas porque es un fallo tonto pero he tardado un rato en darme cuenta de que
+                    solo era eso lo que pasaba. 
+
+*/
+
 
 
 
