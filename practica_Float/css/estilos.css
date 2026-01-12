@@ -79,7 +79,7 @@ p {
 #menu li a:hover{
   /* "Punto 1: Los enlaces cambian de color de fondo y están subrayados de color azul. Necesitarás 2 instrucciones."*/
   /*1: Primero cambio el color de fondo:*/
-  background-color: #ff0000;
+  background-color: #ffa500;
   /*2: Después cambio el color de los enlaces al color indicado (azul):*/
   color: #0000ff;
   /* Ha dicho que están subrayados (en España hay bastante confusión porque usamos resaltar y subrayar de forma indistinta) así que por 
@@ -113,10 +113,15 @@ p {
 }
 
 #footer a:hover{
-  color: #443266;
-  background-color: white;
-  text-decoration: none;
+  /* Dado que en el enunciado nº6 del pdf de la tarea dice "Igual que el 1" refiriéndose a que hagas en el <footer> lo mismo que en el #menu, voy 
+  a tomarmelo literal y voy a poner los mismos colores que se especificaron para el #menu. Además, le añado el underline tal y como pidió 
+  para el #menu: */
+  color: #0000ff; 
+  background-color: #ffa500; 
+  text-decoration: underline; 
 }
+
+
 #image {
   text-align: right;
   margin-right: 60px;
@@ -240,11 +245,10 @@ p {
 
 @media all and (max-width: 500px) {
   #imageLeft {
-    /*
-    Punto 7.1: Barra de menu siempre estara 
-    */
-    /* necesitas 1 instruccion*/
-    /*1: */
+    /* "Punto 7.1: Barra de menu siempre estará. Necesitarás 1 instrucción." */
+    /*1: Para que la barra de menú no desaparezca al hacer scroll usamos "position: fixed;" */
+    position: fixed;
+
     text-align: center;
     padding-bottom: 5px;
   }
@@ -252,35 +256,36 @@ p {
 
 
   #imageRight {
-    /*
-    Punto 7.1: Barra de menu siempre estara 
-    */
-    /* necesitas 1 instruccion*/
-    /*1: */
+    /* "Punto 7.1: Barra de menu siempre estará. Necesitarás 1 instrucción: */
+    /*1: Para que la barra de menú no desaparezca al hacer scroll usamos "position: fixed;" */
+    position: fixed;
+
     text-align: center;
     clear: both;
-  padding-bottom: 5px;
+    padding-bottom: 5px;
   }
   
+
   #textCentral {
     margin: 0px 0px ;
   }
   
+
   #imageToHide {
-    /*
-    Punto 7.2: Barra de menu siempre estara 
-    */
-    /* necesitas 1 instruccion*/
-    /*1: */
+    /* "Punto 7.2: Barra de menu siempre estará. Necesitarás 1 instrucción." */
+    /*1: Para que la barra de menú no desaparezca al hacer scroll usamos "position: fixed;" */
+    position: fixed;
 
     text-align: center;
     margin-bottom: 40px;
   }
   
+
   #textOverflow {
     margin-right: 0px;
   }
   
+
   #header {
     margin-top: 50px;
   }
@@ -298,8 +303,18 @@ p {
 
 
 
-/* ################################################################################################################################ */
 
+/* ############################################################################################################################### */
+
+/*
+
+He repasado los 7 enunciados del pdf y he comprobado que mi css cumple con todo lo que se pide.
+
+*/
+
+
+
+/* ################################################################################################################################ */
 
 
 
@@ -346,7 +361,7 @@ ANOTACIONES sobre CÓMO he RESUELTO ciertas cosas:
 
 
 
-2) ANCHURA DEL <footer>
+2) ANCHURA del <footer>
 
         - Es importante asingarle una ANCHURA del 100% al <footer> para que quede bien estéticamente. 
 
@@ -455,6 +470,8 @@ ANOTACIONES sobre CÓMO he RESUELTO ciertas cosas:
 
 
 
+
+
 6) Especificar el espaciado IZQUIERDO y también el DERECHO al colocar una ventana emergente empleando "position: absolute".
 
         - "Punto 4: La capa está posicionada casi al centro de la pantalla. Se diferencia del menu y del footer en que NO se queda fija al hacer 
@@ -475,6 +492,8 @@ ANOTACIONES sobre CÓMO he RESUELTO ciertas cosas:
                                                       2.- Ocupar MÁS ESPACIO del deseado o MENOS ESPACIO del deseado (dependiendo de su contenido). 
 
                                         
+
+
 
 7) overflow
 
@@ -518,6 +537,12 @@ ANOTACIONES sobre CÓMO he RESUELTO ciertas cosas:
                                         que "overflow-x: hidden" (pero es lo que nos pide expresamente el enunciado). 
 
 
+8) "@media all and (max-width: 500px) {"
+
+        - Aprovechemos para repasar esa sintaxis: "@media all" indica que se aplica a todos los tipos de dispositivos (pantalla, vista de 
+        impresora, etc). 
+
+        - "(max-width: 500px)" indica que el contenido de este selector solo se aplicará cuando la ventana tenga 500px o menos. 
 
 
 
