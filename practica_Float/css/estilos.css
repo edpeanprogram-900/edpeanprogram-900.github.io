@@ -1,4 +1,4 @@
-
+/* Entrega: Float.*/
 
 *{
   margin: 0px auto;
@@ -192,16 +192,11 @@ p {
 }
 
 
-/* 2026_01_11  ->  me he quedado a mitad de la tarea: VOY POR AQUÍ*/
-
 
 #textOverflow {
-  /*
-  Punto 5: La capa tiene una barra de scroll vertical para que podamos leer el texto que no cabe en el tamaño. Solo vertical, no horizontal
-  */
-
-  /* necesitas 2 instruccion*/
-  /*1: */  
+  /* "Punto 5: La capa tiene una barra de scroll vertical para que podamos leer el texto que no cabe en el tamaño. Solo vertical, no horizontal
+  necesitarás 2 instrucciones." */
+  /*1: En el eje vertical le pongo un scroll:*/  
   /*2: */  
   
   height: 250px;
@@ -302,7 +297,7 @@ p {
 
 /*
 
-ANOTACIONES sobre cómo he resuleto ciertas cosas:
+ANOTACIONES sobre CÓMO he RESUELTO ciertas cosas:
 
 1) POSICIÓN ORIGINAL vs. POSICIÓN ÓPTIMA
 
@@ -472,6 +467,35 @@ ANOTACIONES sobre cómo he resuleto ciertas cosas:
                                                       2.- Ocupar MÁS ESPACIO del deseado o MENOS ESPACIO del deseado (dependiendo de su contenido). 
 
                                         
+
+7) overflow
+
+        - "Punto 5: La capa tiene una barra de scroll vertical para que podamos leer el texto que no cabe en el tamaño. Solo vertical, no horizontal
+        necesitarás 2 instrucciones.".
+
+        - Aquí la CLAVE está en que a ti en cuanto te hablen de "barra de scroll" automáticamente tienes que saber que para resolver lo que te 
+        piden tendrás que usar almenos 1 de las propiedades de la familia overflow. 
+
+                        - No hay ninguna otra propiedad en CSS que se encargue de crear, ocultar o controlar barras de desplazamiento (barras de
+                        scroll). 
+
+        - Si quieres que una caja concreta tenga su propio scroll y el resto de la página no se mueva necesitas sí o sí usar la propiedad overflow.
+
+                        - La propia palabra es bastante intuitiva: overflow -> lo que "se sale" -> responde al problema de: ¿qué hago con el 
+                        contenido que "se sale" de esa caja?
+
+        - En el código del id llamado textOverFlow vemos que se le ha asignado una altura a la caja. 
+
+                        - Además, y aquí está la CLAVE, si lo dejamos como está y no configuramos la propiedad overflow en este selector, la 
+                        propiedad overflow conservará su valor por defecto: "visible" y por lo tanto el texto que no quepa SE SALDRÁ literalmente 
+                        de la caja (y muy probablemente quedará fatal estéticamente). 
+        
+        
+        
+        
+
+
+
 
 
 
