@@ -1,3 +1,4 @@
+
 /* Entrega: Float.*/
 
 *{
@@ -196,8 +197,11 @@ p {
 #textOverflow {
   /* "Punto 5: La capa tiene una barra de scroll vertical para que podamos leer el texto que no cabe en el tamaño. Solo vertical, no horizontal
   necesitarás 2 instrucciones." */
-  /*1: En el eje vertical le pongo un scroll:*/  
-  /*2: */  
+  /*1: En el eje vertical le pongo un scroll:*/
+  overflow-y:auto;  
+  /*2: En el eje horizontal, dado que no quiere que haya scroll, solo tengo una opción: "hidden" (pq si lo dejo sin configurar, los conteidos
+  podrían salirse por la derecha y quedaría feo):*/
+  overflow-x: hidden;
   
   height: 250px;
   text-align: justify;
@@ -206,7 +210,6 @@ p {
   padding: 20px;
   margin-right: 20px;
 }
-
 
 
 #textCentral {
@@ -233,6 +236,8 @@ p {
     box-shadow:0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
+
+
 @media all and (max-width: 500px) {
   #imageLeft {
     /*
@@ -243,6 +248,8 @@ p {
     text-align: center;
     padding-bottom: 5px;
   }
+
+
 
   #imageRight {
     /*
@@ -279,6 +286,7 @@ p {
   }
  
 }
+
 
 @media all and (max-width: 300px) {
   #header {
@@ -489,11 +497,25 @@ ANOTACIONES sobre CÓMO he RESUELTO ciertas cosas:
                         - Además, y aquí está la CLAVE, si lo dejamos como está y no configuramos la propiedad overflow en este selector, la 
                         propiedad overflow conservará su valor por defecto: "visible" y por lo tanto el texto que no quepa SE SALDRÁ literalmente 
                         de la caja (y muy probablemente quedará fatal estéticamente). 
-        
-        
-        
-        
 
+        - Pero solo nos piden que pongamos una barra de scroll vertical, ¿qué pasa si solo configuramos el "overflow-y" y no configuramos el
+        "overflow-x"?
+
+                        - Aclaración previa: pese a haber configurado "overflow-y: auto" el contenido TODAVÍA PODRÍA SALIRSE de la caja 
+                        horizontalmente. 
+
+                                        - Y esto se debe a este factor CLAVE: los saltos de línea SOLO ocurren si el contenido son palabras 
+                                        normales, pero si hay algo que no cabe (una palabra larguísima o una imagen o un espacio muy grande,
+                                        o padding extra) -> en ese caso SE SALDRÁ POR LA DERECHA.
+                                        
+                        - Dado que nos ha indicado expresamente en el enunciado que no quiere scroll horizontal, pondremos "overflow-x: hidden" -> 
+                        esto lo que hace es cortar visualmente los elementos que sobresalgan de la caja por los lados. 
+
+                                        - Entonces, con "overflow: hidden" no estamos resolviendo el problema de que el contenido pueda sobresalir
+                                        por los lados, solo estamos ocultando las partes que sobresalgan para que quede más aceptable estéticamente.
+
+                                        - Desde luego, a primera vista, parece que en todos los casos siempre sea mejor poner "overflo-x: auto"
+                                        que "overflow-x: hidden" (pero es lo que nos pide expresamente el enunciado). 
 
 
 
