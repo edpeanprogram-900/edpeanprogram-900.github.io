@@ -1,33 +1,100 @@
 
 
+/* Tarea Float nº2 */
 
 
 
+#menu{
+    /* Para que el menú no desaparezca al scrollear:*/
+    position: fixed;
+    top:0;
+    left:0;
+
+    /* Para que quede centrado: */
+    width: 100%;  /* Esto es esencial para que al centrarse quede en el centro de la pantalla (si no ocupa todo el espacio no puede quedar centrado.*/
+    text-align:center;
+
+}
 
 
 
+#menu li{
+    display: inline;
+
+}
+
+
+#menu a{
+    display: inline;
+    color:white; /* Las letras son de color blanco en la imagen de referncia.*/
+
+}
+
+
+#titulo {
+    font-family: 'Indie Flower', sans-serif; /* Lo de "sans-serif" es para hacer referencia de forma genérica a la familia de fuentes sans-serif (a la que pertenece Arial). Es un respaldo por si Indie Flower no está disponible en un momento determinado. Es una buena práctica. */
+    color: white;
+
+}
 
 
 
+#cookies{
+    position: absolute; /* Para que sea un elemento fuera del flujo de la página. */
+    top: 20%;
+    left: 30%;
+    right: 30%; /* Empleo right (así termino de especificar bien el espacio ocupado por la caja y no corro el riesgo de que quede descentrada u ocupe más espacio del desado):*/
+
+}
+
+
+#contenidoCookies{
+    text-align: center;
+
+}
+
+
+#imgAmazing{
+    float:left; /* Para que se pegue a la izquierda y el título pueda colocarse a su lado. */
+
+}
+
+
+#content{
+    clear: both; /* Dado que en la imagen de #imgAmazin usamos float y estaba arriba de content, en #content hemos de hacer clear: both para asegurarnos de que no suba hacia arriba ocupando los huecos libres previos a él. */
+
+}
+
+
+#introTatuajes{
+
+}
+
+
+#imgRight{
+     float:right; /* Para que se pegue a la derecha y el texto #introTatuajes pueda colocarse a su lado. */
+}
+
+
+#parrafoIntro{
+
+}
+
+
+#culturaTatuajes{
+    clear: both; /* Para que la segunda capa no trate de subir y completar los huecos de la primera capa. */
+}
+
+
+#imgLeft{
+    float:rigleft; /* Para que se pegue a la derecha y el texto #introTatuajes pueda colocarse a su lado. */
+}
 
 
 
+#parrafoCultura{
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 
 
 
@@ -36,9 +103,133 @@
 
 /*
 
-#############################################################################################
+###########################################################################################################################################################################################
 
 */
+
+
+/*
+
+CÓMO HE LOGRADO CIERTAS COSAS: 
+
+
+1) Para las clases he usado "." y para los id he usado "#" (de lo contrario no funcionaría). 
+
+
+2) La barra superior del menú. 
+
+        2.1.- Para que salgan los elemenos <li> salgan unos al lado de otros hay que darles el valor "display: inline;"_______________________________________________________HECHO
+
+        2.2.- Detalle para mejorar: el "display: inline;" se lo asignas también al <a> además de al <li> porque así el <a> ocupa todo el ancho de su contenedor (<li>) y el ÁREA CLICABLE es toda 
+        esa área (mejor diseño).______________________________________________________________________________________________________________________________________________HECHO
+
+
+3) 
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+/* 
+
+################################################################################################################################################################################################
+
+*/
+
+
+
+
+/*
+
+OTRAS COSAS QUE HE APRENDIDO/REPASADO:
+
+
+1) Diferencia entre "display: block;" y "display: inline-block;"
+
+        1.- "display: block;"
+
+                - El elemento pasa a ocupar toda la línea disponible horiontalmente. 
+
+                - Siempre empieza en una línea nueva y después de él todo lo siguiente queda debajo.
+
+                - Permite asignarle ancho (width) y alto (height).
+
+        2.- "display: inline-block;"
+
+                - El elemento Se comporta como un inline (en línea), es decir, puede estar junto a otros elementos en la misma línea.
+
+                 - Pero, al mismo tiempo, y a diferencia de los "display: inline" (cuyo tamaño depende solo del contenido) respecta el width y el height que le especifiques. 
+
+            
+        3.- TRUCO visual: Para los iconos del menú lateral: inline-block es ideal si quieres que estén uno junto a otro HORIZONTALMENTE, y block si quieres que queden en COLUMNA.
+
+
+
+
+
+
+
+
+
+
+*/
+
+
+
+/*
+
+###################################################################################################################################################################################################
+
+
+*/
+
+
+
+
+
+
+
+/* 
+
+ACLARACIONES PURAMENTE TEÓRICAS (no prácticas):
+
+1) En CSS hay "propiedades" y en HTML hay "atributos".
+
+*/
+
+
+
+
+
+/* 
+
+POR HACER:
+
+1) Acuerdate de añadir lo de @media para que al minimizar la ventana por debajo de un determinado número de píxels el contenido se adapte. 
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*   
