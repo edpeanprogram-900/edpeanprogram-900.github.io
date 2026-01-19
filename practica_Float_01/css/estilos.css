@@ -2,7 +2,7 @@
 /* Entrega: Float nº1*/
 
 *{
-  margin: 0px auto;
+  margin: 0px auto; /* Esto es esencial para que la barra del menú sea estilizada (sino es demasiado gruesa). */
 }
 
 body {
