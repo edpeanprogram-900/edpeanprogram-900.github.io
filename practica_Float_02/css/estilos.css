@@ -61,7 +61,7 @@ body{
 #menu a{
     display: inline;
     color:white; /* Las letras son de color blanco en la imagen de referncia.*/
-
+    text-decoration: none; /* Para que las opciones del menu no aparezcan subrayadas (hasta que no se active el hover). */
 }
 
 
@@ -137,8 +137,24 @@ body{
 }
 
 
+#contenidoCookies a{
+    text-decoration: none; /* Para que la opción de "Cerrar" no aparezca subrayada. */
+    background-color: #07a31b;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+    padding-right: 2%;
+    padding-left: 2%;
+
+}
+
+
 #fondoContent{
     background-color: #3a3939;
+    margin-top: 200px; /* Con esto consigo que el contenido empiece más abajo para que al entrar en la página se vea más el fondo.*/
+    border-top-style: dashed;
+    border-top-color: white;
+    border-top-width: 3px;
+    
     /*padding-top: 5px;*/
     /*
     position: fixed;
@@ -147,12 +163,11 @@ body{
     /* max-height: 40%; */
 }
 
-#fondoContent #content{ /* Con esto consigo que el contenido empiece más abajo para que al entrar en la página se vea más el fondo.*/
-    margin-top: 300px;
-}
+
 
 
 #content{
+    margin-top: 5px;
     padding-top: 15px;
     clear: both; /* Dado que en la imagen de #imgAmazin usamos float y estaba arriba de content, en #content hemos de hacer clear: both para asegurarnos de que no suba hacia arriba ocupando los huecos libres previos a él. */
     width: 75%; /* Esto es para que no ocupe toda la anchura y así no se solape con el menú lateral de la derecha (dicho menú lo hemos sacado del flujo del html).*/
@@ -182,6 +197,7 @@ body{
     border-style: dashed;
     border-color: white;
     overflow: hidden;
+    line-height: 0; /* Con esto logré resolver el efecto de que se cortaba parte de la imagen (explicado al final del css). */
 }
 
 
@@ -197,7 +213,7 @@ body{
     clear: both; /* Para que la segunda capa no trate de subir y completar los huecos de la primera capa. */
     background-color: #5a5a5a;
     padding: 15px;
-    padding-bottom: 25px;  /* Le añado un extra abajo para que quepa la imagen del tatuaje de la marioneta. */
+    padding-bottom: 16px;  
     margin-top: 25px;
     margin-bottom: 15px;
     border-radius: 30px;
@@ -212,16 +228,11 @@ body{
 #imgLeft{ /* Esta es la imagen del tatuaje marioneta. */
     float:left; /* Para que se pegue a la derecha y el texto #introTatuajes pueda colocarse a su lado. */
     margin-right: 15px; /* para que el texto no se pegue a la imagen */
-    /*
-    display: block;
-    max-width: 50%;    con esto consigo que nunca sea más ancho que su contenedor 
-    height: auto; 
-    */
     border-radius: 30px;
     border-style: dashed;
     border-color: white;
     overflow: hidden; /* Esto es necesario porque sino no se redondean los bordes. Es raro porque en ejercicios anteriores si que se redondeaban bien las imagenes sin necesidad de añadir esto. */
-
+    line-height: 0; /* Con esto logré resolver el efecto de que se cortaba parte de la imagen (explicado al final del css). */
 }
 
 
@@ -268,12 +279,17 @@ footer {
 }
 
 
-
-
 #menu li a:hover{
-  background-color: #ffa500;
-  color: #0000ff;
-  text-decoration: underline;
+    background-color: #ffa500;
+    color: #0000ff;
+    text-decoration: underline;
+}
+
+
+#contenidoCookies a:hover{
+    background-color: #ffa500;
+    color: #0000ff;
+    text-decoration: underline;
 }
 
 
@@ -281,8 +297,61 @@ footer {
 
 
 @media all and (max-width: 500px) { 
+    
+    #fondoContent{
+        margin-top: 5%;
+    }
 
 
+    #imgAmazing{
+        margin-top: 10%;
+        margin-bottom: 0%;
+        padding: 0;
+        display: block;
+        float: none;
+        clear: both;
+        width: 100%;
+        text-align: center; /* Para que se centre. */
+        margin-left: 0px; /* Sobreescribiendo la instrucción que tenía antes, para que se centre bien al ser la pestaña tan pequeña. */
+        margin-right: 0px; /* Sobreescribiendo la instrucción que tenía antes, para que se centre bien al ser la pestaña tan pequeña. */
+    }
+
+
+    #titulo{
+        margin-top: 0%;
+        padding: 0;
+        clear: both;
+        text-align: center;
+        margin-left: 0px; /* Sobreescribiendo la instrucción que tenía antes, para que se centre bien al ser la pestaña tan pequeña. */
+    }
+
+
+    #imgRight{
+        float: none; /* Para que la imagen se coloque encima de su correspondiente texto en lugar de al lado (adaptándose a las nuevas dimensiones reducidas de la ventana). */
+        clear: both;
+        margin-bottom: 10px;
+    }
+
+
+    #imgLeft{
+        float: none; /* Para que la imagen se coloque encima de su correspondiente texto en lugar de al lado (adaptándose a las nuevas dimensiones reducidas de la ventana). */
+        clear: both;
+        margin-bottom: 10px;
+    }
+
+
+    #sideMenu{
+        top: 10%; /* Ahora que la ventana es tan pequeña, queda mejor así. */
+        right: -5px;  /* Lo he reducido porque sino se solapa con el texto (al ser la ventana mucho más pequeña que antes). */
+    }
+
+    #parrafoCultura{
+        clear: both; /* Pensaba que esto no hacía falta ya que ya hice un "float: none;" en #imgLeft, pero por lo visto los efectos del float persistían en los elementos posteriores. La primera palabra del párrafo se subía junto a la imagen. Pero al añadir esto se ha resuelto. */
+    }
+
+    #parrafoIntro{
+         clear: both; /* Como en el #parrafoCultura esto fue necesario, lo añado también aquí por si acaso ya que el contexto es el mismo (texto que sigue a una imagen que antes tenía float). */
+    }
 
 }
 
@@ -335,7 +404,15 @@ CÓMO HE LOGRADO CIERTAS COSAS:
                             margin: 0px auto; 
                         }    
 
-                    - 
+
+6) IMPORTANTE: las imagenes #imgRight e #imgLeft perdían un cacho por bajo (y por el lado derecho cuando se aplicaba el @media por tamaño de la ventana inferior a 500px).
+
+        - Esto se debía a que había puesto "overflow:hidden;" (necesario para que se recortara la imagen al llegar a sus bordes redondeados).
+
+        - El problema surgía porque la caja de las imagenes (me refiero a la que tiene toda imagen creada) si tiene una altura mínima aunque yo no se la haya definido. Entonces por debajo 
+        de esa altura el overflow era hidden (invisible). 
+
+                            - La solución fue especificar que la altura de la imagen debe ser 0 -> de ese modo se coloca justo en esa línea y nada es "overflow". 
 
 */
 
@@ -394,17 +471,6 @@ OTRAS COSAS QUE HE APRENDIDO/REPASADO:
 
 
 
-/*
-
-###################################################################################################################################################################################################
-
-
-*/
-
-
-
-
-
 
 
 /* 
@@ -414,34 +480,6 @@ ACLARACIONES PURAMENTE TEÓRICAS (no prácticas):
 1) En CSS hay "propiedades" y en HTML hay "atributos".
 
 */
-
-
-
-
-
-/* 
-
-POR HACER:
-
-1) Acuerdate de añadir lo de @media para que al minimizar la ventana por debajo de un determinado número de píxels el contenido se adapte._______________________________ 
-
-2) Acuerdate de añadir la configuración del hover en las palabras que son enlaces.________________________________________________________________________________HECHO
-
-3) Me falta resolver que las imagenes pierden un cacho por bajo (y queda un hueco entre ellas y su borde).________________________________________________________________
-
-*/
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
