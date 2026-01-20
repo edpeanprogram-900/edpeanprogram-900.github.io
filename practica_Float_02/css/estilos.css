@@ -330,6 +330,14 @@ footer {
         float: none; /* Para que la imagen se coloque encima de su correspondiente texto en lugar de al lado (adaptándose a las nuevas dimensiones reducidas de la ventana). */
         clear: both;
         margin-bottom: 10px;
+        line-height: 0;
+        display: block;
+        width: 80%;
+        text-align: center;
+        margin: auto;
+        
+        
+
     }
 
 
@@ -337,12 +345,9 @@ footer {
         float: none; /* Para que la imagen se coloque encima de su correspondiente texto en lugar de al lado (adaptándose a las nuevas dimensiones reducidas de la ventana). */
         clear: both;
         margin-bottom: 10px;
-    }
-
-
-    #sideMenu{
-        top: 10%; /* Ahora que la ventana es tan pequeña, queda mejor así. */
-        right: -5px;  /* Lo he reducido porque sino se solapa con el texto (al ser la ventana mucho más pequeña que antes). */
+        width: 80%;
+        margin: auto;
+     
     }
 
     #parrafoCultura{
@@ -351,6 +356,23 @@ footer {
 
     #parrafoIntro{
          clear: both; /* Como en el #parrafoCultura esto fue necesario, lo añado también aquí por si acaso ya que el contexto es el mismo (texto que sigue a una imagen que antes tenía float). */
+    }
+
+
+    #sideMenu{
+        position: static; /* Esto lo mete de nuevo en el flujo del html. */
+        text-align: center;
+        width: 100%;
+        right: auto; 
+        left: auto;
+        background-color: #3a3939;
+
+    }
+
+
+    #sideMenu li{
+        display: inline-block;
+        
     }
 
 }
@@ -409,10 +431,17 @@ CÓMO HE LOGRADO CIERTAS COSAS:
 
         - Esto se debía a que había puesto "overflow:hidden;" (necesario para que se recortara la imagen al llegar a sus bordes redondeados).
 
-        - El problema surgía porque la caja de las imagenes (me refiero a la que tiene toda imagen creada) si tiene una altura mínima aunque yo no se la haya definido. Entonces por debajo 
+        6.1.- El problema surgía porque la caja de las imagenes (me refiero a la que tiene toda imagen creada) si tiene una altura mínima aunque yo no se la haya definido. Entonces por debajo 
         de esa altura el overflow era hidden (invisible). 
 
-                            - La solución fue especificar que la altura de la imagen debe ser 0 -> de ese modo se coloca justo en esa línea y nada es "overflow". 
+                        - La solución fue especificar que la altura de la imagen debe ser 0 -> de ese modo se coloca justo en esa línea y nada es "overflow". 
+
+        6.2.- El mismo fenómeno sucedía al aplicarse el código del @media por tamaño de la ventana inferior a 500px.
+
+                        - En este caso lo que se cortaba era el borde derecho de las imágenes. La única forma de resolverlo fue reducir el width de las imagenes. 
+
+                        - Consejo: Cuando uses "border-radius" + "overflow: hidden" + imágenes que llenen el contenedor, deja siempre un pequeño “margen de seguridad” en el contenedor 
+                        (como 90–95%) para que la curva no choque con el contenido.
 
 */
 
