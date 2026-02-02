@@ -1,0 +1,386 @@
+
+
+/* Tarea Flex */
+
+* {
+  margin: 0px auto;
+}
+
+
+
+html, body { /* Esto lo hago al tratar de lograr que el fondo gris de #fondoContent llegue al final de la página. Es un paso previo. */
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+
+
+body{
+    background: url('../images/fondo.jpg');
+    background-repeat: no-repeat; /* Que cuando el fondo no alcance a cubrir toda la superficie, la imagen no se repita (es algo que hace automáticamente si no le dices lo contrario. */
+    /*background-position: center center;  -> el primer valor es el eje horizontal y el segundo valor es el eje vertical. */
+    background-position: center -9.8%; /* Para que la imagen no quede tan escondida debajo de la barra del navegador (y así se parezca más a como queda en la foto de la web del pdf del enunciado. He puesto ese valor de -9.8% porque si le pongo un valor menor ya se sale de debajo del encabezado y se queda una línea de la página sin fondo. */
+    background-size: cover; /* para que la imagen cubra el total de su contenedor. Se mantiene la proporción (se recorta para que encaje si es necesario). */
+    font-family: 'Indie Flower', sans-seri;
+
+    /* "el fondo de la página que NO se desplaza al usar el scroll" -> ojo "position: fixed;" no vale para fondos. En su lugar usamos:*/
+    background-attachment: fixed;
+    
+}
+
+
+header{  /* Este selector en la tarea de float no lo había usado. Pero ahora con Flexbox, la estrategia es muy distinta: en lugar de mover los hijos individualmente, hago que el contenedor (header) sea flex y los hijos se alinean automáticamente. Por eso ahora sí necesito un selector header. */
+    display: flex;  /* Activar el flex en el padre afecta a cómo se distribuyen los hijos. */
+    align-items: center;
+    padding: 40px 30px 10px 30px;
+}
+
+
+
+
+#menu{
+    position: fixed; /* Para que el menú no desaparezca al scrollear:*/
+    top:0;
+    left:0;
+    background-color: #07a31b;
+    border-bottom-style: dashed;
+    border-color: white;
+
+    /* Para que quede centrado: */
+    width: 100%;  /* Esto es esencial para que al centrarse quede en el centro de la pantalla (si no ocupa todo el espacio no puede quedar centrado.*/
+    text-align:center;
+
+}
+
+
+
+
+#menu li{
+    display: inline;
+
+}
+
+
+
+#menu a{
+    display: inline;
+    color:white; /* Las letras son de color blanco en la imagen de referncia.*/
+    text-decoration: none; /* Para que las opciones del menu no aparezcan subrayadas (hasta que no se active el hover). */
+}
+
+
+
+#titulo {
+    font-family: 'Indie Flower', sans-serif; /* Lo de "sans-serif" es para hacer referencia de forma genérica a la familia de fuentes sans-serif (a la que pertenece Arial). Es un respaldo por si Indie Flower no está disponible en un momento determinado. Es una buena práctica. */
+    color: white;
+
+}
+
+#titulo h1 {
+    font-size: 70px;
+    text-shadow:  /* Con esto consigo que el texto blanco tenga contorno negro y que destaque respecto al fondo*/
+        -4px -4px 0 #000,
+        4px -4px 0 #000,
+        -4px  4px 0 #000,
+        4px  4px 0 #000,
+        -4px  0px 0 #000,
+        4px  0px 0 #000,
+        0px -4px 0 #000,
+        0px  4px 0 #000;
+}
+
+
+#titulo h3 {
+    font-size: 25px;
+    text-shadow:  /* Con esto consigo que el texto blanco tenga contorno negro y que destaque respecto al fondo*/
+        -2px -2px 0 #000,
+        2px -2px 0 #000,
+        -2px  2px 0 #000,
+        2px  2px 0 #000,
+        -2px  0px 0 #000,
+        2px  0px 0 #000,
+        0px -2px 0 #000,
+        0px  2px 0 #000;
+}
+
+
+
+#imgAmazing{
+    /*float:left; -> ahora no usamos float por eso lo comento. */
+    margin-right:30px;
+}
+
+
+
+#cookies{
+    position: absolute; /* Para que sea un elemento fuera del flujo de la página. */
+    top: 20%;
+    left: 30%;
+    right: 30%; /* Empleo right (así termino de especificar bien el espacio ocupado por la caja y no corro el riesgo de que quede descentrada u ocupe más espacio del desado):*/
+    border-color: red;
+    border-width: 0.5px;
+    border-style: solid; /* Recuerda que si no le das valor al style el border es invisible. */
+    background-color: white;
+    padding: 10px;
+    text-align: center;
+
+}
+
+
+
+#contenidoCookies{
+    text-align: center;
+
+}
+
+
+#contenidoCookies a{
+    text-decoration: none; /* Para que la opción de "Cerrar" no aparezca subrayada. */
+    background-color: #07a31b;
+    padding-right: 2%;
+    padding-left: 2%;
+
+}
+
+
+#fondoContent{
+    background-color: #3a3939;
+    margin-top: 200px; /* Con esto consigo que el contenido empiece más abajo para que al entrar en la página se vea más el fondo.*/
+    border-top-style: dashed;
+    border-top-color: white;
+    border-top-width: 3px;
+    
+}
+
+
+
+
+#content{
+    margin-top: 5px;
+    padding-top: 15px;
+    /*clear: both; -> ya no estamos usando float así que lo comento. */
+    width: 75%; /* Esto es para que no ocupe toda la anchura y así no se solape con el menú lateral de la derecha (dicho menú lo hemos sacado del flujo del html).*/
+    right: auto; /* Para que quede centrado (al no ocupar el 100% de su padre he de asegurarme de que quede centrado). */
+    left: auto;
+    background-color: #3a3939;
+}
+
+
+
+#introTatuajes{
+    display: flex;
+    flex-wrap: wrap; /* Con esto consigo que los elementos que no caben en la primera fila salten a la siguiente. Esto es clave para cuando la ventana se haga más pequeña (que el texto se coloque debajo de su correspondiente foto). */
+    background-color: #5a5a5a;
+    padding: 15px;
+    border-radius: 30px;
+    border-style: dashed;
+    border-color: #acacac;
+    /* overflow: hidden;  -> Esto lo puse en la anterior práctica de float porque sino la #imgRight se salía por bajo -> pero ahora con flex los contenedores contenedor se ajustan automáticamente a la altura de los hijos así que ya no es necesario prevenir el overflow porque no va a suceder. */
+}
+
+
+
+#imgRight{ /* Esta es la imagen del tatuaje costillas. */
+    /* float:right; -> en esta práctica ya no estamos usando float por eso lo comento. */
+    margin-left: 15px; /* para que el texto no se pegue a la imagen */
+    border-radius: 30px;
+    border-style: dashed;
+    border-color: white;
+    overflow: hidden;
+    line-height: 0; /* Con esto logré resolver el efecto de que se cortaba parte de la imagen (explicado al final del css). */
+}
+
+
+/* ESTOY HACIENDO LA CONVERSIÓN A FLEX Y VOY POR AQUÍ.*/
+
+
+#parrafoIntro{
+    text-align: justify;
+    margin: 5px; /* Para que no se pegue a los bordes de la caja. */
+    color: rgb(179, 178, 178);
+}
+
+
+
+#culturaTatuajes{
+    clear: both; /* Para que la segunda capa no trate de subir y completar los huecos de la primera capa. */
+    background-color: #5a5a5a;
+    padding: 15px;
+    padding-bottom: 16px;  
+    margin-top: 25px;
+    margin-bottom: 15px;
+    border-radius: 30px;
+    border-style: dashed;
+    border-color: #acacac;
+    overflow: hidden; /* Porque sino la #imgLeft se sale por bajo. */
+
+}
+
+
+
+#imgLeft{ /* Esta es la imagen del tatuaje marioneta. */
+    float:left; /* Para que se pegue a la derecha y el texto #introTatuajes pueda colocarse a su lado. */
+    margin-right: 15px; /* para que el texto no se pegue a la imagen */
+    border-radius: 30px;
+    border-style: dashed;
+    border-color: white;
+    overflow: hidden; /* Esto es necesario porque sino no se redondean los bordes. Es raro porque en ejercicios anteriores si que se redondeaban bien las imagenes sin necesidad de añadir esto. */
+    line-height: 0; /* Con esto logré resolver el efecto de que se cortaba parte de la imagen (explicado al final del css). */
+}
+
+
+
+#parrafoCultura{
+    text-align: justify;
+    margin: 10px;
+    margin: 15px; /* Para que no se pegue a los bordes de la caja. */
+    color: rgb(179, 178, 178);
+}
+
+
+#fondoContent::after{ /* Esto lo tuve que añadir porque la #imgLeft sobresalía por bajo y generaba un espacio entre el footer y el #fondoContent que quedaba sin fondo gris. */
+    clear: both; /* Después del fondoContent eliminas el efecto de los float.*/
+    display: table; /* Hace que el elemento sea un contenedor de bloque capaz de envolver elementos flotantes. También se puede usar block, pero table a veces da menos problemas de colapso de márgenes. */
+    content: ""; /* Sin content el elemento no se renderiza y el resto no funciona. */
+}
+
+
+
+
+#sideMenu{
+    clear: both;  /* Como en el HTML esto va después de la segunda capa de floats he de usar clear. Nota a posteriori: en realidad no hace falta porque el side menu lo hemos sacado del flujo.  */
+    display: block; /* Como queremos que los <li> queden formando una columna usamos "display: block;"*/
+    position: fixed; /* Lo sacamos del flujo para colocarlo en el margen derecho. */
+    right: 40px; 
+    top: 25%;
+
+}
+
+#sideMenu li{
+    list-style: none; /* Para que no se vean los puntos de cada <li> en una <ul>. OJO -> al principio no funcionaba porque lo había puesto en "#menu{" y no en "#menu li{" */
+}
+
+
+footer {
+    clear: both;
+    text-align: center;
+    border-top-style: dashed;
+    border-color: white;
+    background-color: #07a31b;
+    color: white;
+    
+}
+
+
+#menu li a:hover{
+    background-color: #ffa500;
+    color: #0000ff;
+    text-decoration: underline;
+}
+
+
+#contenidoCookies a:hover{
+    background-color: #ffa500;
+    color: #0000ff;
+    text-decoration: underline;
+}
+
+
+
+
+
+@media all and (max-width: 500px) { 
+    
+    #fondoContent{
+        margin-top: 5%;
+    }
+
+
+    #imgAmazing{
+        margin-top: 10%;
+        margin-bottom: 0%;
+        padding: 0;
+        display: block;
+        float: none;
+        clear: both;
+        width: 100%;
+        text-align: center; /* Para que se centre. */
+        margin-left: 0px; /* Sobreescribiendo la instrucción que tenía antes, para que se centre bien al ser la pestaña tan pequeña. */
+        margin-right: 0px; /* Sobreescribiendo la instrucción que tenía antes, para que se centre bien al ser la pestaña tan pequeña. */
+    }
+
+
+    #titulo{
+        margin-top: 0%;
+        padding: 0;
+        clear: both;
+        text-align: center;
+        margin-left: 0px; /* Sobreescribiendo la instrucción que tenía antes, para que se centre bien al ser la pestaña tan pequeña. */
+    }
+
+
+    #imgRight{
+        float: none; /* Para que la imagen se coloque encima de su correspondiente texto en lugar de al lado (adaptándose a las nuevas dimensiones reducidas de la ventana). */
+        clear: both;
+        margin-bottom: 10px;
+        line-height: 0;
+        display: block;
+        width: 80%;
+        text-align: center;
+        margin: auto;
+        
+        
+
+    }
+
+
+    #imgLeft{
+        float: none; /* Para que la imagen se coloque encima de su correspondiente texto en lugar de al lado (adaptándose a las nuevas dimensiones reducidas de la ventana). */
+        clear: both;
+        margin-bottom: 10px;
+        width: 80%;
+        margin: auto;
+     
+    }
+
+    #parrafoCultura{
+        clear: both; /* Pensaba que esto no hacía falta ya que ya hice un "float: none;" en #imgLeft, pero por lo visto los efectos del float persistían en los elementos posteriores. La primera palabra del párrafo se subía junto a la imagen. Pero al añadir esto se ha resuelto. */
+    }
+
+    #parrafoIntro{
+         clear: both; /* Como en el #parrafoCultura esto fue necesario, lo añado también aquí por si acaso ya que el contexto es el mismo (texto que sigue a una imagen que antes tenía float). */
+    }
+
+
+    #sideMenu{
+        position: static; /* Esto lo mete de nuevo en el flujo del html. */
+        text-align: center;
+        width: 100%;
+        right: auto; 
+        left: auto;
+        background-color: #3a3939;
+
+    }
+
+
+    #sideMenu li{
+        display: inline-block;
+        
+    }
+
+}
+
+
+
+
+/*
+
+###########################################################################################################################################################################################
+
+*/
+
+
+
