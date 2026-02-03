@@ -3,15 +3,17 @@
 /* Tarea Flex */
 
 * {
-  margin: 0px auto;
+    /* margin: 0px auto; -> esto era causante de varios errores, lo he eliminado y he colocado las líneas siguiente en su lugar */
+    margin: 0;
+    padding: 0;
 }
 
 
 
 html, body { /* Esto lo hago al tratar de lograr que el fondo gris de #fondoContent llegue al final de la página. Es un paso previo. */
-  height: 100%;
-  margin: 0;
-  padding: 0;
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 
@@ -24,7 +26,7 @@ body{
     /*background-position: center center;  -> el primer valor es el eje horizontal y el segundo valor es el eje vertical. */
     background-position: center -9.8%; /* Para que la imagen no quede tan escondida debajo de la barra del navegador (y así se parezca más a como queda en la foto de la web del pdf del enunciado. He puesto ese valor de -9.8% porque si le pongo un valor menor ya se sale de debajo del encabezado y se queda una línea de la página sin fondo. */
     background-size: cover; /* para que la imagen cubra el total de su contenedor. Se mantiene la proporción (se recorta para que encaje si es necesario). */
-    font-family: 'Indie Flower', sans-seri;
+    font-family: 'Indie Flower', sans-serif;
 
     /* "el fondo de la página que NO se desplaza al usar el scroll" -> ojo "position: fixed;" no vale para fondos. En su lugar usamos:*/
     background-attachment: fixed;
@@ -59,9 +61,9 @@ header{  /* Este selector en la tarea de float no lo había usado. Pero ahora co
 
 
 #menu li{
-    display: inline;
-
+    display: inline-block; /* Antes estaba puesto "display: inline" pero inline no respeta bien width y height y el área clicable suele quedarse pequeña. Con inline-block sucede al contrario. */
 }
+
 
 
 
@@ -142,6 +144,7 @@ header{  /* Este selector en la tarea de float no lo había usado. Pero ahora co
     background-color: #07a31b;
     padding-right: 2%;
     padding-left: 2%;
+    color: white;
 
 }
 
@@ -163,8 +166,7 @@ header{  /* Este selector en la tarea de float no lo había usado. Pero ahora co
     padding-top: 15px;
     /*clear: both; -> ya no estamos usando float así que lo comento. */
     width: 75%; /* Esto es para que no ocupe toda la anchura y así no se solape con el menú lateral de la derecha (dicho menú lo hemos sacado del flujo del html).*/
-    right: auto; /* Para que quede centrado (al no ocupar el 100% de su padre he de asegurarme de que quede centrado). */
-    left: auto;
+    margin: 0 auto;
     background-color: #3a3939;
 }
 
@@ -189,18 +191,16 @@ header{  /* Este selector en la tarea de float no lo había usado. Pero ahora co
     border-radius: 30px;
     border-style: dashed;
     border-color: white;
-    overflow: hidden;
+    overflow: hidden; /* Necesario para que los bordes redondeados corten la imagen. */
     line-height: 0; /* Con esto logré resolver el efecto de que se cortaba parte de la imagen (explicado al final del css). */
     width: 38%;
+    max-width: 300px; /* añado esto porque la imagen era demasiado grande */
 }
-
-
-
 
 
 #parrafoIntro{
     text-align: justify;
-    margin: 5px; /* Para que no se pegue a los bordes de la caja. */
+    margin: 15px auto; /* Para que no se pegue a los bordes de la caja y para que se centre horizontalmente. */
     color: rgb(179, 178, 178);
     width: 55%;
 }
@@ -210,7 +210,7 @@ header{  /* Este selector en la tarea de float no lo había usado. Pero ahora co
 #culturaTatuajes{
     /*clear: both; -> ahora ya no estamos usando float por eso lo comento.  */
     display: flex;
-    flex: wrap; /* Con esto consigo que los elementos que no caben en la primera fila salten a la siguiente. Esto es clave para cuando la ventana se haga más pequeña (que el texto se coloque debajo de su correspondiente foto). */
+    flex-wrap: wrap; /* Con esto consigo que los elementos que no caben en la primera fila salten a la siguiente. Esto es clave para cuando la ventana se haga más pequeña (que el texto se coloque debajo de su correspondiente foto). */
     background-color: #5a5a5a;
     background-color: #5a5a5a;
     padding: 15px;
@@ -227,7 +227,7 @@ header{  /* Este selector en la tarea de float no lo había usado. Pero ahora co
 
 
 #imgLeft{ /* Esta es la imagen del tatuaje marioneta. */
-    float:left; /* Para que se pegue a la derecha y el texto #introTatuajes pueda colocarse a su lado. */
+    /*float:left; */
     margin-right: 15px; /* para que el texto no se pegue a la imagen */
     border-radius: 30px;
     border-style: dashed;
@@ -235,13 +235,22 @@ header{  /* Este selector en la tarea de float no lo había usado. Pero ahora co
     overflow: hidden; /* Esto es necesario porque sino no se redondean los bordes. Es raro porque en ejercicios anteriores si que se redondeaban bien las imagenes sin necesidad de añadir esto. */
     line-height: 0; /* Con esto logré resolver el efecto de que se cortaba parte de la imagen (explicado al final del css). */
     width: 38%;
+    max-width: 300px; /* añado esto porque la imagen era demasiado grande */
+}
+
+
+#imgRight img, #imgLeft img{
+    /* Este selector lo he creado para eliminar el hueco que queda entre la imagen y su borde (un hueco enorme que no entendía a qué se debía).*/
+    width: 100%; /* para que llene toda su caja y por lo tanto no queden huecos entre la imagen y su borde*/
+    height: auto; /* para que mantenga la proporción (que no se estire). Como consecuencia, para poder llenar la caja la imagen tendrá que recortarse un poco por los bordes. */
+    display: block; /* para convertir la imagen en elemento de bloque, igual que un <div> -> a diferencia del "display: inline" ya no genera espacio extra debajo, porque los elementos de bloque no tienen línea base de texto. */
 }
 
 
 
 #parrafoCultura{
     text-align: justify;
-    margin: 15px; /* Para que no se pegue a los bordes de la caja. */
+    margin: 15px auto; /* Para que no se pegue a los bordes de la caja y para que se centren horizontalmente. */
     color: rgb(179, 178, 178);
     width: 55%;
 }
@@ -346,48 +355,53 @@ footer {
 
     #introTatuajes, #culturaTatuajes { /*este selector no lo tenía en la práctica de float. Como flex se activa en los padres para tener efecto sobre los hijos (mientras que float se activaba en los hijos) ahora necesito este selector. */
         flex-direction: column; /* Para que los hijos (los dos packs de texto-foto) se coloquen unos encima de otros en lugar de en filas. */
+        align-items: center;
     }
 
 
 
-    #imgRight{
+    #imgRight, #ImgLeft{
         /*float: none; */
         /*clear: both; */
         width: 80%;
+        max-width: 300px;
         margin: 10px auto 0 auto; /* Recuerda que el orden SIEMPRE es como las agujas del reloj: arriba, derecha, abajo, izquierda.*/
         line-height: 0;
         /*display: block; -> ya no hace falta porque su padre tiene flex-direction: column y eso ya les hará colocarse en columnas (que esa era la funcion del display:block). */
         text-align: center;
-        
+        flex-grow: 0;  /* Las imagenes se estiraban junto al texto en lugar de colocarse sobre él. Con esto trato de evitarlo.  */
+        flex-shrink: 0;  /* Las imagenes se estiraban junto al texto en lugar de colocarse sobre él. Con esto trato de evitarlo.  */
+        flex-basis: auto;  /* Las imagenes se estiraban junto al texto en lugar de colocarse sobre él. Con esto trato de evitarlo.  */
     }
 
 
-    #imgLeft{
-        /*float: none; */
-        /* clear: both;*/
-        margin: 10px auto 0 auto;
-        width: 80%;
-     
+    #imgRight img, #imgLeft img {
+        /* Esto lo añado porque las imágenes dejaban hueco respecto a su borde. Con las siguientes líneas trato de remediarlo. */
+        width: 100%; /* para que llene toda su caja y por lo tanto no queden huecos entre la imagen y su borde*/
+        height: auto; /* para que mantenga la proporción (que no se estire). Como consecuencia, para poder llenar la caja la imagen tendrá que recortarse un poco por los bordes. */
+        display: block; /* para convertir la imagen en elemento de bloque, igual que un <div> -> a diferencia del "display: inline" ya no genera espacio extra debajo, porque los elementos de bloque no tienen línea base de texto. */
     }
 
     
-    /* Este selector ya no hace falta. 
-    #parrafoCultura{
-        clear: both; 
-    }
-    */
 
-    /* Este selector ya no hace falta.
-    #parrafoIntro{
-         clear: both; 
+    #parrafoCultura, #parrafoIntro{
+        /* clear: both; */
+        width: 90%;
+        max-width: 400px;
+        margin: 10px 0;
+        text-align: justify;
+        flex-grow: 0; /* Las imagenes se estiraban junto al texto en lugar de colocarse sobre él. Con esto trato de evitarlo.  */
+        flex-shrink: 0;  /* Las imagenes se estiraban junto al texto en lugar de colocarse sobre él. Con esto trato de evitarlo.  */
+        flex-basis: auto;  /* Las imagenes se estiraban junto al texto en lugar de colocarse sobre él. Con esto trato de evitarlo.  */
+
     }
-    */
 
     #sideMenu{
         position: static; /* Esto lo mete de nuevo en el flujo del html. */
         text-align: center;
         width: 100%;
         background-color: #3a3939;
+        margin: 20px 0;
 
     }
 
@@ -408,4 +422,13 @@ footer {
 */
 
 
+
+/*
+
+NOTAS:
+
+1) He intentado mil cosas pero no he logrado que las imagenes #ImgLeft e #ImgRight no se estiren de esa forma tan rara cuando se aplica el @media. No logro que se coloquen encima del texto. 
+
+
+*/
 

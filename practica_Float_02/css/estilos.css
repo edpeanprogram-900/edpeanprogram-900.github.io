@@ -171,8 +171,7 @@ body{
     padding-top: 15px;
     clear: both; /* Dado que en la imagen de #imgAmazin usamos float y estaba arriba de content, en #content hemos de hacer clear: both para asegurarnos de que no suba hacia arriba ocupando los huecos libres previos a él. */
     width: 75%; /* Esto es para que no ocupe toda la anchura y así no se solape con el menú lateral de la derecha (dicho menú lo hemos sacado del flujo del html).*/
-    right: auto; /* Para que quede centrado (al no ocupar el 100% de su padre he de asegurarme de que quede centrado). */
-    left: auto;
+    margin: 0 auto;
     background-color: #3a3939;
 }
 
