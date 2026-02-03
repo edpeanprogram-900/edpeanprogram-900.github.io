@@ -191,22 +191,27 @@ header{  /* Este selector en la tarea de float no lo había usado. Pero ahora co
     border-color: white;
     overflow: hidden;
     line-height: 0; /* Con esto logré resolver el efecto de que se cortaba parte de la imagen (explicado al final del css). */
+    width: 38%;
 }
 
 
-/* ESTOY HACIENDO LA CONVERSIÓN A FLEX Y VOY POR AQUÍ.*/
+
 
 
 #parrafoIntro{
     text-align: justify;
     margin: 5px; /* Para que no se pegue a los bordes de la caja. */
     color: rgb(179, 178, 178);
+    width: 55%;
 }
 
 
 
 #culturaTatuajes{
-    clear: both; /* Para que la segunda capa no trate de subir y completar los huecos de la primera capa. */
+    /*clear: both; -> ahora ya no estamos usando float por eso lo comento.  */
+    display: flex;
+    flex: wrap; /* Con esto consigo que los elementos que no caben en la primera fila salten a la siguiente. Esto es clave para cuando la ventana se haga más pequeña (que el texto se coloque debajo de su correspondiente foto). */
+    background-color: #5a5a5a;
     background-color: #5a5a5a;
     padding: 15px;
     padding-bottom: 16px;  
@@ -215,7 +220,7 @@ header{  /* Este selector en la tarea de float no lo había usado. Pero ahora co
     border-radius: 30px;
     border-style: dashed;
     border-color: #acacac;
-    overflow: hidden; /* Porque sino la #imgLeft se sale por bajo. */
+    /*overflow: hidden; -> -> Esto lo puse en la anterior práctica de float porque sino la #imgLeft se salía por bajo -> pero ahora con flex los contenedores contenedor se ajustan automáticamente a la altura de los hijos así que ya no es necesario prevenir el overflow porque no va a suceder. */ 
 
 }
 
@@ -229,35 +234,39 @@ header{  /* Este selector en la tarea de float no lo había usado. Pero ahora co
     border-color: white;
     overflow: hidden; /* Esto es necesario porque sino no se redondean los bordes. Es raro porque en ejercicios anteriores si que se redondeaban bien las imagenes sin necesidad de añadir esto. */
     line-height: 0; /* Con esto logré resolver el efecto de que se cortaba parte de la imagen (explicado al final del css). */
+    width: 38%;
 }
 
 
 
 #parrafoCultura{
     text-align: justify;
-    margin: 10px;
     margin: 15px; /* Para que no se pegue a los bordes de la caja. */
     color: rgb(179, 178, 178);
+    width: 55%;
 }
 
-
-#fondoContent::after{ /* Esto lo tuve que añadir porque la #imgLeft sobresalía por bajo y generaba un espacio entre el footer y el #fondoContent que quedaba sin fondo gris. */
-    clear: both; /* Después del fondoContent eliminas el efecto de los float.*/
-    display: table; /* Hace que el elemento sea un contenedor de bloque capaz de envolver elementos flotantes. También se puede usar block, pero table a veces da menos problemas de colapso de márgenes. */
-    content: ""; /* Sin content el elemento no se renderiza y el resto no funciona. */
+/*
+Este selector lo he borrado porque ahora al no haber floats los hijos no salen del flujo y el contenedro calcula su altura automáticamente (por lo que es imposible que los hijos se salgan). 
+#fondoContent::after{  Esto lo tuve que añadir porque la #imgLeft sobresalía por bajo y generaba un espacio entre el footer y el #fondoContent que quedaba sin fondo gris. 
+    clear: both;  
+    display: table;  -> hacía que el elemento sea un contenedor de bloque capaz de envolver elementos flotantes. También se puede usar block, pero table a veces da menos problemas de colapso de márgenes. 
+    content: ""; ->  Sin content el elemento no se renderiza y el resto no funciona. 
 }
-
+*/
 
 
 
 #sideMenu{
-    clear: both;  /* Como en el HTML esto va después de la segunda capa de floats he de usar clear. Nota a posteriori: en realidad no hace falta porque el side menu lo hemos sacado del flujo.  */
-    display: block; /* Como queremos que los <li> queden formando una columna usamos "display: block;"*/
+    /*clear: both; -> ya no estamos usando floats. */
+    display: block; /* Como queremos que los <li> queden formando una COLUMNA usamos "display: block;"*/
     position: fixed; /* Lo sacamos del flujo para colocarlo en el margen derecho. */
     right: 40px; 
     top: 25%;
 
 }
+
+
 
 #sideMenu li{
     list-style: none; /* Para que no se vean los puntos de cada <li> en una <ul>. OJO -> al principio no funcionaba porque lo había puesto en "#menu{" y no en "#menu li{" */
@@ -265,14 +274,18 @@ header{  /* Este selector en la tarea de float no lo había usado. Pero ahora co
 
 
 footer {
-    clear: both;
+    /* clear: both; -> ya no estamos usando floats. */
     text-align: center;
     border-top-style: dashed;
     border-color: white;
     background-color: #07a31b;
     color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
     
 }
+
+
 
 
 #menu li a:hover{
@@ -299,13 +312,21 @@ footer {
     }
 
 
+
+    header{
+        flex-direction: column; /* Con esto le digo que los elementos hijos del header (#imgAmazing y #titulo) se coloquen en columnas en lugar de en filas (que es la posición por defecto). Así quedará mejor en una pantalla pequeña. */
+        align-items: center; /* align items distribuye los elementos en el eje secundario. Pero ahora el eje secundario es el eje horizontal así que los centrará en la pantalla.  */
+    }
+
+
+
     #imgAmazing{
         margin-top: 10%;
         margin-bottom: 0%;
         padding: 0;
         display: block;
-        float: none;
-        clear: both;
+        /*float: none;*/
+        /*clear: both;*/
         width: 100%;
         text-align: center; /* Para que se centre. */
         margin-left: 0px; /* Sobreescribiendo la instrucción que tenía antes, para que se centre bien al ser la pestaña tan pequeña. */
@@ -313,54 +334,59 @@ footer {
     }
 
 
+
     #titulo{
-        margin-top: 0%;
+        margin: 0%; /* Sobreescribiendo la instrucción que tenía antes, para que se centre bien al ser la pestaña tan pequeña. */
         padding: 0;
-        clear: both;
+        /*clear: both;*/
         text-align: center;
-        margin-left: 0px; /* Sobreescribiendo la instrucción que tenía antes, para que se centre bien al ser la pestaña tan pequeña. */
     }
 
 
-    #imgRight{
-        float: none; /* Para que la imagen se coloque encima de su correspondiente texto en lugar de al lado (adaptándose a las nuevas dimensiones reducidas de la ventana). */
-        clear: both;
-        margin-bottom: 10px;
-        line-height: 0;
-        display: block;
-        width: 80%;
-        text-align: center;
-        margin: auto;
-        
-        
 
+    #introTatuajes, #culturaTatuajes { /*este selector no lo tenía en la práctica de float. Como flex se activa en los padres para tener efecto sobre los hijos (mientras que float se activaba en los hijos) ahora necesito este selector. */
+        flex-direction: column; /* Para que los hijos (los dos packs de texto-foto) se coloquen unos encima de otros en lugar de en filas. */
+    }
+
+
+
+    #imgRight{
+        /*float: none; */
+        /*clear: both; */
+        width: 80%;
+        margin: 10px auto 0 auto; /* Recuerda que el orden SIEMPRE es como las agujas del reloj: arriba, derecha, abajo, izquierda.*/
+        line-height: 0;
+        /*display: block; -> ya no hace falta porque su padre tiene flex-direction: column y eso ya les hará colocarse en columnas (que esa era la funcion del display:block). */
+        text-align: center;
+        
     }
 
 
     #imgLeft{
-        float: none; /* Para que la imagen se coloque encima de su correspondiente texto en lugar de al lado (adaptándose a las nuevas dimensiones reducidas de la ventana). */
-        clear: both;
-        margin-bottom: 10px;
+        /*float: none; */
+        /* clear: both;*/
+        margin: 10px auto 0 auto;
         width: 80%;
-        margin: auto;
      
     }
 
+    
+    /* Este selector ya no hace falta. 
     #parrafoCultura{
-        clear: both; /* Pensaba que esto no hacía falta ya que ya hice un "float: none;" en #imgLeft, pero por lo visto los efectos del float persistían en los elementos posteriores. La primera palabra del párrafo se subía junto a la imagen. Pero al añadir esto se ha resuelto. */
+        clear: both; 
     }
+    */
 
+    /* Este selector ya no hace falta.
     #parrafoIntro{
-         clear: both; /* Como en el #parrafoCultura esto fue necesario, lo añado también aquí por si acaso ya que el contexto es el mismo (texto que sigue a una imagen que antes tenía float). */
+         clear: both; 
     }
-
+    */
 
     #sideMenu{
         position: static; /* Esto lo mete de nuevo en el flujo del html. */
         text-align: center;
         width: 100%;
-        right: auto; 
-        left: auto;
         background-color: #3a3939;
 
     }
@@ -368,12 +394,11 @@ footer {
 
     #sideMenu li{
         display: inline-block;
-        
     }
 
 }
 
-
+/* Ya he terminado de revisar todo el código y de dar los mismos efectos que había dado con float pero ahora con flex. No espero que funcione a la primera, supongo que tendré que hacer algunos ajustes (lo voy a poner a prueba con Live Server). */
 
 
 /*

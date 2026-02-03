@@ -363,8 +363,6 @@ footer {
         position: static; /* Esto lo mete de nuevo en el flujo del html. */
         text-align: center;
         width: 100%;
-        right: auto; 
-        left: auto;
         background-color: #3a3939;
 
     }
