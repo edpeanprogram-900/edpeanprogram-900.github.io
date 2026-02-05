@@ -189,7 +189,7 @@ header{  /* Este selector en la tarea de float no lo había usado. Pero ahora co
     /* float:right; -> en esta práctica ya no estamos usando float por eso lo comento. */
     margin-left: 15px; /* para que el texto no se pegue a la imagen */
     border-radius: 30px;
-    border-style: dashed;
+    border-style: hidden; /* Lo pongo en hidde porque sino se alarga cuando se estrecha la ventana de la página. -> En la tarea de float no pasaba, pero en la de flex sí. */
     border-color: white;
     overflow: hidden; /* Necesario para que los bordes redondeados corten la imagen. */
     line-height: 0; /* Con esto logré resolver el efecto de que se cortaba parte de la imagen (explicado al final del css). */
@@ -230,7 +230,7 @@ header{  /* Este selector en la tarea de float no lo había usado. Pero ahora co
     /*float:left; */
     margin-right: 15px; /* para que el texto no se pegue a la imagen */
     border-radius: 30px;
-    border-style: dashed;
+    border-style: hidden; /* Lo pongo en hidde porque sino se alarga cuando se estrecha la ventana de la página. -> En la tarea de float no pasaba, pero en la de flex sí. */
     border-color: white;
     overflow: hidden; /* Esto es necesario porque sino no se redondean los bordes. Es raro porque en ejercicios anteriores si que se redondeaban bien las imagenes sin necesidad de añadir esto. */
     line-height: 0; /* Con esto logré resolver el efecto de que se cortaba parte de la imagen (explicado al final del css). */
@@ -372,7 +372,11 @@ footer {
         flex-grow: 0;  /* Las imagenes se estiraban junto al texto en lugar de colocarse sobre él. Con esto trato de evitarlo.  */
         flex-shrink: 0;  /* Las imagenes se estiraban junto al texto en lugar de colocarse sobre él. Con esto trato de evitarlo.  */
         flex-basis: auto;  /* Las imagenes se estiraban junto al texto en lugar de colocarse sobre él. Con esto trato de evitarlo.  */
+        
     }
+
+
+    
 
 
     #imgRight img, #imgLeft img {
@@ -428,6 +432,19 @@ footer {
 NOTAS:
 
 1) He intentado mil cosas pero no he logrado que las imagenes #ImgLeft e #ImgRight no se estiren de esa forma tan rara cuando se aplica el @media. No logro que se coloquen encima del texto. 
+
+            - Misterio resuelto: era un tema del zoom -> en casa lo debia tener al 90% y no daba como para que la imagen se monatara sobre el texto.
+
+            - En el PC de clase he reducido la ventana al tamaño mínimo y ahí las imagenes sí se han montado correctamente encima del texto. 
+
+            - REGLA DE ORO PARA QUE NO TE VUELVA A PASAR ESTO: en lugar de simplemente hacer pequeña la ventana -> pulsa la tecla F12 en el navegador -> en el botón de la barra superior de selección de dispositivo selecciona un móvil. 
+
+                                - Si hubiera hecho es sí que me habría dado cuenta de que sí que funcionaba bien. 
+
+
+
+
+2) Decido quitarle los bordes a la #ImgLeft y #ImgRight -> osea simplemente le quito el "border-style: solid". 
 
 
 */
