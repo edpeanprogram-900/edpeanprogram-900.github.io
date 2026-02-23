@@ -1,4 +1,5 @@
 
+// EJERCICIO 3
 
 
 
@@ -24,32 +25,6 @@
 
 /*
 
-ENUNCIADO 1: --------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-Genera una página web que responda en console.
-El ejercicio consiste en que tienes una función que acepta como parámetro el número de
-caras del dado y devuelve un número aleatorio entre 1 y ese número. Usa console para
-informar del resultado.
-Para números aleatorios puedes usar:
-Math.floor(Math.random() * max) + 1;
-
-
-
-
-
-
-
-ENUNCIADO 2: ------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-Haz una página que devuelve los números de la primitiva, recuerda las claves:
-• Números entre el 1 y el 49 inclusive
-• No se pueden repetir.
-• Solo 6.
-
-
-
-
-
 
 ENUNCIADO 3:
 
@@ -72,31 +47,6 @@ atrás con la misma clave.
 
 
 
-
-
-
-
-ENUNCIADO 4:
-
-Le puedes decir a la función cuantos caracteres tiene que tener la contraseña,
-sabiendo que como mínimo serán 8 y máximo 50 caracteres.
-La contraseña tiene que tener:
-▪ mínimo 1 número y máximo 2
-▪ mínimo 1 carácter especial y máximo 2
-▪ mínimo 1 carácter mayúscula
-Puedes usar las siguientes funciones si quieres:
-// Definimos los caracteres que vamos a usar
-let caracteres = "abcdefghijklmnopqrstuvwxyz";
-let caracteresMayusculas = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-let caracteresNumeros = "0123456789";
-let caracteresEspeciales = "!@#$%^&*()_+|~`-={}[]:;'<>?,./";
-// devuelve un valor aleatorio entre min y max
-function numeroAleatorio(min, max) {
-return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-..............
-//desordenar array
-password = password.split('').sort(() => Math.random() - 0.5).join('');
 
 
 
