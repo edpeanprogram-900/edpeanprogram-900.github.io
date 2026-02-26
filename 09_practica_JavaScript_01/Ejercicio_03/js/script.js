@@ -10,13 +10,21 @@ let fraseCifrada = "";
 
 for (let i=0; i<frase.length; i++) {
     console.log(frase[i]);
-    let posicion = (alfabeto.indexOf(frase[i])+paso) % alfabeto.length;      // usamos el módulo para que nunca se salga del array (que no de el error de out of bouns).
+    let posicion = (alfabeto.indexOf(frase[i])+paso) % alfabeto.length;      // el módulo nos sirve para que nunca se salga del array (que no de el error de out of bouns).
     let letraCifrada = alfabeto[posicion];
-    fraseCifrada = faseCifrada + letraCifrada;
+    fraseCifrada = fraseCifrada + letraCifrada;
 
 }
 
 console.log(fraseCifrada);
+
+
+/*
+
+
+
+*/
+
 
 
 
@@ -37,7 +45,7 @@ Ejemplo rápido (clave = 3)
 Si tu mensaje es HOLA y usas clave 3:
 • H K, O R, L O, A D, así que queda → → → → KROD.
 Para descifrar
-Haces lo contrario: en vez de mover hacia delante, mueves cada letra kk posiciones haciaatrás con la misma clave.
+Haces lo contrario: en vez de mover hacia delante, mueves cada letra kk posiciones hacia atrás con la misma clave.
 
 
 
