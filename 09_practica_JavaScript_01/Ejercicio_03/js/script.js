@@ -21,7 +21,9 @@ console.log(fraseCifrada);
 
 /*
 
+Ya he comprobado que funcione correctamente: me devuelve "fdvd".
 
+Este error ":5500/favicon.ico:1 Failed to load resource: the server responded with a status of 404 (Not Found)" es simplemente que el navegador no encuentra el icono para la pestaña, pero eso no es un problema. 
 
 */
 
@@ -57,7 +59,7 @@ Haces lo contrario: en vez de mover hacia delante, mueves cada letra kk posicion
 
 // Versión empleando .charCodeAt() -------------------------------------------------------------------------------------------------------------------------------------
 
-
+/*
 function cifradoCesar(texto, clave) {
     let resultado = "";
 
@@ -74,6 +76,7 @@ function cifradoCesar(texto, clave) {
 console.log("Cifrado César:", cifradoCesar("HOLA", 3));
 
 
+*/
 
 
 /*

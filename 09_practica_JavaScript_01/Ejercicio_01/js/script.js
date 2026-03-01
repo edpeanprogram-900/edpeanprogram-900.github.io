@@ -1,3 +1,4 @@
+
 // EJERCICIO 1: dado
 
 function lanzarDado(max) {
@@ -7,21 +8,12 @@ function lanzarDado(max) {
 console.log("Dado 6 caras:", lanzarDado(6));
 
 
+/*
+
+Ya he comprobado que funciona correctamente, me ha devuelto esto: "Dado 6 caras: 2".
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+*/
 
 
 

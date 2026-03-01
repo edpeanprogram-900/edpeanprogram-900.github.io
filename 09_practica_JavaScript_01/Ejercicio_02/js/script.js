@@ -14,8 +14,15 @@ function primitiva() {
 
 }
 
+console.log(primitiva());
 
 
+/*
+
+Ya he comprobado que funcione correctamente (me devuelve el array con 6 números del 1 al 49).
+
+
+*/
 
 
 /*
