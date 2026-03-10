@@ -20,7 +20,7 @@ html, body { /* Esto lo hago al tratar de lograr que el fondo gris de #fondoCont
 
 body{
     background: url('../images/fondo.jpg');
-    background-repeat: no-repeat; /* Que cuando el fondo no alcance a cubrir toda la superficie, la imagen no se repita (es algo que hace automáticamente si no le dices lo contrario. */
+    background-repeat: no-repeat; /* Que cuando el fondo no alcance a cubrir toda la superficie, la imagen no se repita (que se repita es algo que hace automáticamente si no le dices lo contrario). */
     /*background-position: center center;  -> el primer valor es el eje horizontal y el segundo valor es el eje vertical. */
     background-position: center -9.8%; /* Para que la imagen no quede tan escondida debajo de la barra del navegador (y así se parezca más a como queda en la foto de la web del pdf del enunciado. He puesto ese valor de -9.8% porque si le pongo un valor menor ya se sale de debajo del encabezado y se queda una línea de la página sin fondo. */
     background-size: cover; /* para que la imagen cubra el total de su contenedor. Se mantiene la proporción (se recorta para que encaje si es necesario). */
