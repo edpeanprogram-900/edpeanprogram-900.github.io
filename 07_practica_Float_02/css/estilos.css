@@ -1,5 +1,3 @@
-
-
 /* Tarea Float nº2 */
 
 * {
@@ -398,26 +396,30 @@ CÓMO HE LOGRADO CIERTAS COSAS:
 
         2.1.- Para que salgan los elemenos <li> salgan unos al lado de otros hay que darles el valor "display: inline;"_______________________________________________________HECHO
 
-        2.2.- Detalle para mejorar: el "display: inline;" se lo asignas también al <a> además de al <li> porque así el <a> ocupa todo el ancho de su contenedor (<li>) y el ÁREA CLICABLE es toda 
-        esa área (mejor diseño).______________________________________________________________________________________________________________________________________________HECHO
+        2.2.- Detalle para mejorar: el "display: inline;" se lo asignas también al <a> además de al <li> porque así el <a> ocupa todo el ancho de su contenedor (<li>) y el ÁREA CLICABLE es toda esa área (mejor diseño).______________________________________________________________________________________________________________________________________________HECHO
 
 
 3) "Debajo se ve el fondo de la página que NO se desplaza al usar el scroll."
 
-        3.1.- Ojo -> el css está dentro de la carpeta css, por ello, al poner la url (de la imagen del fondo de la página) hemos de empezar por "../" -> para indicarle que lo primero en la ruta 
-        es salir de la carpeta de css. 
+        3.1.- Ojo -> el css está dentro de la carpeta css, por ello, al poner la url (de la imagen del fondo de la página) hemos de empezar por "../" -> para indicarle que lo primero en la ruta  es salir de la carpeta de css. 
 
         3.2.- Ojo -> "position: fixed;" no vale para fondos. En su lugar usamos: "background-attachment: fixed;"
 
 
 4) El menú lateral a la derecha -> la dificultad aquí está en darte cuenta de que para lograr esa posición lo que se ha hecho es sacarlo del flujo del html. 
 
+                    position: fixed;     ->    Lo sacamos del flujo para colocarlo en el margen derecho. 
+
+                    No confundir con el -> position: absolute; -> empleado para la ventana emergente de las cookies. 
+
+                    OJO -> "absolute" = relativo a algo;  "fixed" = fijo en la pantalla; Y en muchísimas webs modernas también se usa fixed para las cookies, porque así siempre se ven hasta aceptarlas
+
         4.1.- Además, para que no se solape con los elementos que quedan debajo -> has de configurar el #content para que no ocupe el 100% del width de su contenedor. 
 
 
 5) IMPORTANTE: la barra superior del menú era demasiado gruesa y no había forma de resolverlo (ni con margin ni con padding; ni en el propio "#menu" ni en los "#menu li{").
 
-        5.1.- Finalmente he descubierto que había que añadir esto (que sí estaba en la práctica anterior de float)::after
+        5.1.- Finalmente he descubierto que había que añadir esto (que sí estaba en la práctica anterior de float).
 
                         *{
                             margin: 0px auto; 
@@ -428,8 +430,7 @@ CÓMO HE LOGRADO CIERTAS COSAS:
 
         - Esto se debía a que había puesto "overflow:hidden;" (necesario para que se recortara la imagen al llegar a sus bordes redondeados).
 
-        6.1.- El problema surgía porque la caja de las imagenes (me refiero a la que tiene toda imagen creada) si tiene una altura mínima aunque yo no se la haya definido. Entonces por debajo 
-        de esa altura el overflow era hidden (invisible). 
+        6.1.- El problema surgía porque la caja de las imagenes (me refiero a la que tiene toda imagen creada) si tiene una altura mínima aunque yo no se la haya definido. Entonces por debajo  de esa altura el overflow era hidden (invisible). 
 
                         - La solución fue especificar que la altura de la imagen debe ser 0 -> de ese modo se coloca justo en esa línea y nada es "overflow". 
 
@@ -437,8 +438,7 @@ CÓMO HE LOGRADO CIERTAS COSAS:
 
                         - En este caso lo que se cortaba era el borde derecho de las imágenes. La única forma de resolverlo fue reducir el width de las imagenes. 
 
-                        - Consejo: Cuando uses "border-radius" + "overflow: hidden" + imágenes que llenen el contenedor, deja siempre un pequeño “margen de seguridad” en el contenedor 
-                        (como 90–95%) para que la curva no choque con el contenido.
+                        - Consejo: Cuando uses "border-radius" + "overflow: hidden" + imágenes que llenen el contenedor, deja siempre un pequeño “margen de seguridad” en el contenedor  (como 90–95%) para que la curva no choque con el contenido.
 
 */
 
@@ -517,8 +517,7 @@ La página que vamos a crear en esta tarea debe tener la estructura básica que 
 
             b) Crear tu propia web, con otras imagenes y otros textos - pero OJO: lo que sí debes seguir es la estructura básica indicada al inicio del pdf. 
 
-Esta es la primera web que vamos a hacer. Y viendo lo mucho que me costó hacer la primera práctica de float, creo que lo mejor es simplemente imitar la web que el nos muestra
-(así no pierdo tiempo en pensar el diseño estético de la web y voy directo a los retos técnicos, que todo a punta a que serán muchas horas de dedicación). 
+Esta es la primera web que vamos a hacer. Y viendo lo mucho que me costó hacer la primera práctica de float, creo que lo mejor es simplemente imitar la web que el nos muestra (así no pierdo tiempo en pensar el diseño estético de la web y voy directo a los retos técnicos, que todo a punta a que serán muchas horas de dedicación). 
 
 
 */

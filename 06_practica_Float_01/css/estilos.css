@@ -334,36 +334,28 @@ p {
 
 LOS PROBLEMAS FINALES (Y DE MAYOR COMPLEJIDAD):
 
-Ya estoy en la fase final, he cumplido con todo lo que decían tanto las anotaciones del CSS como los enunciados del PDF. Ahora simplemente
-habró la web con el Live Server para comprobar que se comporta como es esperado:
+Ya estoy en la fase final, he cumplido con todo lo que decían tanto las anotaciones del CSS como los enunciados del PDF. Ahora simplemente habró la web con el Live Server para comprobar que se comporta como es esperado:
 
 1.- El contenido de #menu no me sale centrado. 
 
-        - Aquí es CLAVE averiguar cual es la causa real. Y me costó mucho averiguarlo, lo dejo anotado para tenerlo en cuenta para futuras 
-        prácticas: no se trata solo del text-align: center y el display: block, también has de ASEGURARTE de que esa caja OCUPA todo el ANCHO
-        de la PANTALLA.
+        - Aquí es CLAVE averiguar cual es la causa real. Y me costó mucho averiguarlo, lo dejo anotado para tenerlo en cuenta para futuras prácticas: no se trata solo del text-align: center y el display: block, también has de ASEGURARTE de que esa caja OCUPA todo el ANCHO de la PANTALLA.
 
         - Y eso se hace con "width: 100%;"
 
  
 2.- Al minimizar la ventana y estrecharla no se comporta como muestran las imagenes del pdf de la tarea.
 
-        - El elemento #textCentral no se va hacia abajo cuando la pantalla es de 500px o menos (tal y como muestran las ilustraciones del pdf
-        del enunciado).
+        - El elemento #textCentral no se va hacia abajo cuando la pantalla es de 500px o menos (tal y como muestran las ilustraciones del pdf del enunciado).
 
         - ¿Cuál es la causa?
 
-        2.1.- Me ha costado bastante, pero ya lo he averiguado. La CLAVE aquí es acordarte de que en esas imágenes usaste FLOAT y en saber las
-        consecuencias que eso tiene. 
+        2.1.- Me ha costado bastante, pero ya lo he averiguado. La CLAVE aquí es acordarte de que en esas imágenes usaste FLOAT y en saber las consecuencias que eso tiene. 
 
-                    - Al tener esas imágenes la propiedad "float: right;" y "float: left;" hacen que los elementos posteriores LLENEN los huecos 
-                    dejados por estas imágenes. Y eso afecta al elemento #textCentral.
+                    - Al tener esas imágenes la propiedad "float: right;" y "float: left;" hacen que los elementos posteriores LLENEN los huecos  dejados por estas imágenes. Y eso afecta al elemento #textCentral.
 
-                    - Ahora que ya sé la explicación, su comportamiento visual es muy lógico: se estira tratando de ocupar un hueco cada vez más 
-                    estrecho entre las dos imágenes. 
+                    - Ahora que ya sé la explicación, su comportamiento visual es muy lógico: se estira tratando de ocupar un hueco cada vez más estrecho entre las dos imágenes. 
 
-                    - Solución: de primeras se me viene a la mente la propiedad clear, pero dado que solo queremos que se aplique cuando la ventana
-                    se hace de 500px o menos, es mejor emplear "float: none;". Eso sí, hay que acordarse de aplicarlo sobre todas esas imágenes. 
+                    - Solución: de primeras se me viene a la mente la propiedad clear, pero dado que solo queremos que se aplique cuando la ventana se hace de 500px o menos, es mejor emplear "float: none;". Eso sí, hay que acordarse de aplicarlo sobre todas esas imágenes. 
 
         - Finalmente lo resuelvo así:
               #imageLeft, #imageRight, #imageToHide {
@@ -373,28 +365,21 @@ habró la web con el Live Server para comprobar que se comporta como es esperado
                     margin-right: auto;  ->  Los centro horizontalmente (requiere 2 instrucciones).
               }
               
-        2.2.- OJO -> eso no termina de resolverlo. Me ha costado bastante averiguar qué es lo que pasaba. Faltaba un matiz: #imageLeft e 
-        #ImageRight han flotado antes (float: left/right) y aunque en el @media ya no floten visualmente, el flujo del documento queda 
-        "contaminado" por decirlo de alguna manera. Mientras no se aplique una limpieza de los efectos de los float (que pueden perdurar) 
-        los elementos posteriores pueden seguir viéndose afectados. 
+        2.2.- OJO -> eso no termina de resolverlo. Me ha costado bastante averiguar qué es lo que pasaba. Faltaba un matiz: #imageLeft e  #ImageRight han flotado antes (float: left/right) y aunque en el @media ya no floten visualmente, el flujo del documento queda  "contaminado" por decirlo de alguna manera. Mientras no se aplique una limpieza de los efectos de los float (que pueden perdurar)  los elementos posteriores pueden seguir viéndose afectados. 
 
                     - Es algo que me parece sumamente contraintuitivo, pero sin duda he de tenerlo muy muy en cuenta para futuras prácticas. 
 
-                    - Lo resuelvo añadiendo esto: 
+                    - Lo resuelvo añadiendo esto: "clear: both;"
 
 
         2.3.- OJO -> tenía un fallo ortográfico: había escrito #ImageRight en lugar de #imageRight.
 
-                    - Y lo más peligroso de ese error es que Visual Studio no te subraya eso como un error así que es muy fácil volverse
-                    loco y no encontrar el fallo. Mare meua. 
+                    - Y lo más peligroso de ese error es que Visual Studio no te subraya eso como un error así que es muy fácil volverse loco y no encontrar el fallo. Mare meua. 
 
 
-        2.4.- Me he llevado un buen susto porque al minimizarlo seguían sin colocarse los elementos de forma vertical y #textCentral seguía 
-        haciendose muy estirado entre las imágenes.
+        2.4.- Me he llevado un buen susto porque al minimizarlo seguían sin colocarse los elementos de forma vertical y #textCentral seguía haciendose muy estirado entre las imágenes.
 
-                    - Al final era porque no había llegado todavía a la barrera de los 500px y el contendio de @media todavía no podía entrar
-                    en acción. Tenerlo en cuenta para futuras prácticas porque es un fallo tonto pero he tardado un rato en darme cuenta de que
-                    solo era eso lo que pasaba. 
+                    - Al final era porque no había llegado todavía a la barrera de los 500px y el contendio de @media todavía no podía entrar en acción. Tenerlo en cuenta para futuras prácticas porque es un fallo tonto pero he tardado un rato en darme cuenta de que solo era eso lo que pasaba. 
 
 */
 
@@ -442,18 +427,13 @@ ANOTACIONES sobre CÓMO he RESUELTO ciertas cosas:
 
         - Si no pusieras top y left el menú quedaría fijado en su "POSICIÓN ORIGINAL". 
         
-                    - Y este es el concepto clave para entender por qué es tan importante en este caso NO limitarse simplemente a poner 
-                    "position: fixed", sino añadir también top y left.
+                    - Y este es el concepto clave para entender por qué es tan importante en este caso NO limitarse simplemente a poner "position: fixed", sino añadir también top y left.
 
-                    - La POSICIÓN ORIGINAL del menú es relativamente IMPREDECIBLE porque depende del "flujo normal del documento". Y tratando 
-                    de entender el concepto de "posición original" hemos topado con el concepto "flujo normal del documento". 
+                    - La POSICIÓN ORIGINAL del menú es relativamente IMPREDECIBLE porque depende del "flujo normal del documento". Y tratando de entender el concepto de "posición original" hemos topado con el concepto "flujo normal del documento". 
 
-                    - ¿Qué quiere decir que la posición original del menú depende del FLUJO NORMAL DEL DOCUMENTO? Quiere decir que depende del
-                    <header>, de los márgnes del <body>, etc (dicho así se entiende mejor). Es decir, depende del resto de elementos adyacentes
-                    en el index.html. 
+                    - ¿Qué quiere decir que la posición original del menú depende del FLUJO NORMAL DEL DOCUMENTO? Quiere decir que depende del <header>, de los márgnes del <body>, etc (dicho así se entiende mejor). Es decir, depende del resto de elementos adyacentes en el index.html. 
 
-                    - CONCLUSIÓN: añadiendo el top y el left nos aseguramos de que el menú ocupa la posición óptima para la visualización de los 
-                    contenidos de la página. Recuerda: "position: fixed;" NO MUEVE, solo fija en pantalla. 
+                    - CONCLUSIÓN: añadiendo el top y el left nos aseguramos de que el menú ocupa la posición óptima para la visualización de los contenidos de la página. Recuerda: "position: fixed;" NO MUEVE, solo fija en pantalla. 
 
 
 
@@ -472,11 +452,9 @@ ANOTACIONES sobre CÓMO he RESUELTO ciertas cosas:
 
         - Pero en este caso no hay que usar left, sino width.
 
-                    - ¿Por qué? Pues porque "width: 100%;" nos garantiza que el <footer> será una BARRA COMPLETA de forde a borde y no solo 
-                    un rectángulo pequeño pegado abajo. 
+                    - ¿Por qué? Pues porque "width: 100%;" nos garantiza que el <footer> será una BARRA COMPLETA de forde a borde y no solo un rectángulo pequeño pegado abajo. 
 
-                    - Es decir, si no pusieras "width: 100%;", su longitud dependería de lo extenso que fuera su contenido. Y si su contenido es
-                    muy breve quedaría solo como un rectángulo pequeño (quedaría mal estéticamente). 
+                    - Es decir, si no pusieras "width: 100%;", su longitud dependería de lo extenso que fuera su contenido. Y si su contenido es muy breve quedaría solo como un rectángulo pequeño (quedaría mal estéticamente). 
 
 
 
@@ -489,8 +467,7 @@ ANOTACIONES sobre CÓMO he RESUELTO ciertas cosas:
         
                     1.- La caja se pegue a la izquierda.
 
-                    2.- El contenido posterior FLUYA A SU ALREDEDOR (a no ser que se evite que eso suceda empleando en esos elementos 
-                    posteriores la propiedad "clear").
+                    2.- El contenido posterior FLUYA A SU ALREDEDOR (a no ser que se evite que eso suceda empleando en esos elementos posteriores la propiedad "clear").
 
         - "position: absolute/relative/fixed;" junto con "left: 0;" hace que:
 
@@ -505,11 +482,9 @@ ANOTACIONES sobre CÓMO he RESUELTO ciertas cosas:
 
 4) clear: both;
 
-        - "Punto 3: Para que la capa de la imagen y el float NO sigan la dinámica de la sección anterior hay que romperla. Necesitarás 1 
-        instrucción."
+        - "Punto 3: Para que la capa de la imagen y el float NO sigan la dinámica de la sección anterior hay que romperla. Necesitarás 1 instrucción."
 
-        - Aquí se refiere al hecho de que como los elementos anteriores tienen la propiedad float, los elementos posteriores fluirán ocupando los 
-        espacios junto a ellos. Para evitar que se produzca ese flujo (solicitado por el propio enunciado) podemos usar la propiedad clear.
+        - Aquí se refiere al hecho de que como los elementos anteriores tienen la propiedad float, los elementos posteriores fluirán ocupando los espacios junto a ellos. Para evitar que se produzca ese flujo (solicitado por el propio enunciado) podemos usar la propiedad clear.
 
         - En este caso, como queremos romper con todos los floats anteriores, le damos el valor "both" -> "clear: both;".
 
@@ -521,11 +496,9 @@ ANOTACIONES sobre CÓMO he RESUELTO ciertas cosas:
 
 5) "position: absolute"   vs.   "position: relative".
 
-        - "Punto 4: La capa está posicionada casi al centro de la pantalla. Se diferencia del menu y del footer en que NO se queda fija al hacer 
-        scroll de la página. Necesitarás 4 instrucciones. 3 de ellas son distancia a los bordes :)"
+        - "Punto 4: La capa está posicionada casi al centro de la pantalla. Se diferencia del menu y del footer en que NO se queda fija al hacer scroll de la página. Necesitarás 4 instrucciones. 3 de ellas son distancia a los bordes :)"
 
-        - Leyendo ese enunciado ya sabemos que NO se ha de usar "position: fixed;" ya que indica claramente que este elemento no debe quedarse
-        fijo al hacer scroll.
+        - Leyendo ese enunciado ya sabemos que NO se ha de usar "position: fixed;" ya que indica claramente que este elemento no debe quedarse fijo al hacer scroll.
 
 
         5.1.- "position: relative"
@@ -557,12 +530,9 @@ ANOTACIONES sobre CÓMO he RESUELTO ciertas cosas:
                                   - Ejemplo: Colocar el cuadro flotante de aceptar las cookies de una página web. 
 
 
-        - Este enunciado se encuentra dentro del selector llamado "#CookieEU", lo cuál deja bastante claro que lo óptimo aquí es usar 
-        "position: absolute".
+        - Este enunciado se encuentra dentro del selector llamado "#CookieEU", lo cuál deja bastante claro que lo óptimo aquí es usar "position: absolute".
 
-        - "#CookieEU" está directamente dentro de <body> (es algo que podemos verificar rápidamente mirando el index.html). No tiene ningún padre
-        distinto de <body> que tenga "position" con un valor distinto de "static". Por ello "#CookieEU" se posicionará con respecto a TODA LA 
-        PÁGINA (<body>). 
+        - "#CookieEU" está directamente dentro de <body> (es algo que podemos verificar rápidamente mirando el index.html). No tiene ningún padre distinto de <body> que tenga "position" con un valor distinto de "static". Por ello "#CookieEU" se posicionará con respecto a TODA LA PÁGINA (<body>). 
 
 
 
@@ -571,8 +541,7 @@ ANOTACIONES sobre CÓMO he RESUELTO ciertas cosas:
 
 6) Especificar el espaciado IZQUIERDO y también el DERECHO al colocar una ventana emergente empleando "position: absolute".
 
-        - "Punto 4: La capa está posicionada casi al centro de la pantalla. Se diferencia del menu y del footer en que NO se queda fija al hacer 
-        scroll de la página. Necesitarás 4 instrucciones. 3 de ellas son distancia a los bordes :)"
+        - "Punto 4: La capa está posicionada casi al centro de la pantalla. Se diferencia del menu y del footer en que NO se queda fija al hacer scroll de la página. Necesitarás 4 instrucciones. 3 de ellas son distancia a los bordes :)"
 
         - A primera vista parece que con "position: absolute;" y luego "top: 20%;" y "left: 30%" ya sería suficiente.
 
@@ -594,57 +563,43 @@ ANOTACIONES sobre CÓMO he RESUELTO ciertas cosas:
 
 7) overflow
 
-        - "Punto 5: La capa tiene una barra de scroll vertical para que podamos leer el texto que no cabe en el tamaño. Solo vertical, no horizontal
-        necesitarás 2 instrucciones.".
+        - "Punto 5: La capa tiene una barra de scroll vertical para que podamos leer el texto que no cabe en el tamaño. Solo vertical, no horizontal necesitarás 2 instrucciones.".
 
-        - Aquí la CLAVE está en que a ti en cuanto te hablen de "barra de scroll" automáticamente tienes que saber que para resolver lo que te 
-        piden tendrás que usar almenos 1 de las propiedades de la familia overflow. 
+        - Aquí la CLAVE está en que a ti en cuanto te hablen de "barra de scroll" automáticamente tienes que saber que para resolver lo que te piden tendrás que usar almenos 1 de las propiedades de la familia overflow. 
 
-                        - No hay ninguna otra propiedad en CSS que se encargue de crear, ocultar o controlar barras de desplazamiento (barras de
-                        scroll). 
+                        - No hay ninguna otra propiedad en CSS que se encargue de crear, ocultar o controlar barras de desplazamiento (barras de scroll). 
 
         - Si quieres que una caja concreta tenga su propio scroll y el resto de la página no se mueva necesitas sí o sí usar la propiedad overflow.
 
-                        - La propia palabra es bastante intuitiva: overflow -> lo que "se sale" -> responde al problema de: ¿qué hago con el 
-                        contenido que "se sale" de esa caja?
+                        - La propia palabra es bastante intuitiva: overflow -> lo que "se sale" -> responde al problema de: ¿qué hago con el contenido que "se sale" de esa caja?
 
         - En el código del id llamado textOverFlow vemos que se le ha asignado una altura a la caja. 
 
-                        - Además, y aquí está la CLAVE, si lo dejamos como está y no configuramos la propiedad overflow en este selector, la 
-                        propiedad overflow conservará su valor por defecto: "visible" y por lo tanto el texto que no quepa SE SALDRÁ literalmente 
-                        de la caja (y muy probablemente quedará fatal estéticamente). 
+                        - Además, y aquí está la CLAVE, si lo dejamos como está y no configuramos la propiedad overflow en este selector, la propiedad overflow conservará su valor por defecto: "visible" y por lo tanto el texto que no quepa SE SALDRÁ literalmente de la caja (y muy probablemente quedará fatal estéticamente). 
 
         - Pero solo nos piden que pongamos una barra de scroll vertical, ¿qué pasa si solo configuramos el "overflow-y" y no configuramos el
         "overflow-x"?
 
-                        - Aclaración previa: pese a haber configurado "overflow-y: auto" el contenido TODAVÍA PODRÍA SALIRSE de la caja 
-                        horizontalmente. 
+                        - Aclaración previa: pese a haber configurado "overflow-y: auto" el contenido TODAVÍA PODRÍA SALIRSE de la caja horizontalmente. 
 
-                                        - Y esto se debe a este factor CLAVE: los saltos de línea SOLO ocurren si el contenido son palabras 
-                                        normales, pero si hay algo que no cabe (una palabra larguísima o una imagen o un espacio muy grande,
-                                        o padding extra) -> en ese caso SE SALDRÁ POR LA DERECHA.
+                                        - Y esto se debe a este factor CLAVE: los saltos de línea SOLO ocurren si el contenido son palabras normales, pero si hay algo que no cabe (una palabra larguísima o una imagen o un espacio muy grande, o padding extra) -> en ese caso SE SALDRÁ POR LA DERECHA.
                                         
-                        - Dado que nos ha indicado expresamente en el enunciado que no quiere scroll horizontal, pondremos "overflow-x: hidden" -> 
-                        esto lo que hace es cortar visualmente los elementos que sobresalgan de la caja por los lados. 
+                        - Dado que nos ha indicado expresamente en el enunciado que no quiere scroll horizontal, pondremos "overflow-x: hidden" -> esto lo que hace es cortar visualmente los elementos que sobresalgan de la caja por los lados. 
 
-                                        - Entonces, con "overflow: hidden" no estamos resolviendo el problema de que el contenido pueda sobresalir
-                                        por los lados, solo estamos ocultando las partes que sobresalgan para que quede más aceptable estéticamente.
+                                        - Entonces, con "overflow: hidden" no estamos resolviendo el problema de que el contenido pueda sobresalir por los lados, solo estamos ocultando las partes que sobresalgan para que quede más aceptable estéticamente.
 
-                                        - Desde luego, a primera vista, parece que en todos los casos siempre sea mejor poner "overflo-x: auto"
-                                        que "overflow-x: hidden" (pero es lo que nos pide expresamente el enunciado). 
+                                        - Desde luego, a primera vista, parece que en todos los casos siempre sea mejor poner "overflo-x: auto" que "overflow-x: hidden" (pero es lo que nos pide expresamente el enunciado). 
 
 
 8) "@media all and (max-width: 500px) {"
 
-        - Aprovechemos para repasar esa sintaxis: "@media all" indica que se aplica a todos los tipos de dispositivos (pantalla, vista de 
-        impresora, etc). 
+        - Aprovechemos para repasar esa sintaxis: "@media all" indica que se aplica a todos los tipos de dispositivos (pantalla, vista de impresora, etc). 
 
         - "(max-width: 500px)" indica que el contenido de este selector solo se aplicará cuando la ventana tenga 500px o menos. 
 
 
 
-99) En los enunciados presentes en el propio CSS pasa del "punto 5" al "punto 7" (dejo esta nota para que me quede claro que no es que yo haya 
-borrado por error parte del código, sino que se produce ese salto en la numeración). 
+99) En los enunciados presentes en el propio CSS pasa del "punto 5" al "punto 7" (dejo esta nota para que me quede claro que no es que yo haya  borrado por error parte del código, sino que se produce ese salto en la numeración). 
 
 */
 
