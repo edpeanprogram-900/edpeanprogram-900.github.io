@@ -8,36 +8,36 @@ let borrar1=null;         //document.getElementById("1");
 let indice=0;
 
 // eventos
-/* 
+
 // Ejercicio 1
 boton.addEventListener("click", (e) => {
     console.log("Me han pulsado:" + num1.value * 2)
 })
-*/
 
-/*
+
+
 // Ejercicio 2
 boton.addEventListener("click", (e) => {
     console.log("Me han pulsado:" + (num1.value * num2.value))
 })
-*/
 
-/*
+
+
 // Ejercicio 3
 boton.addEventListener("click", (e) => {
     console.log("Me han pulsado:" + (parseInt(num1.value) + parseInt(num2.value)));   // con el signo "+" concatena, para evitarlo hemos de usar parseInt.
     salida.innerHTML=(parseInt(num1.value) + parseInt(num2.value)); 
 })
-*/
 
-/*
+
+
 // Ejercicio 4
 boton.addEventListener("click", (e) => {
     for (let i=0; i<num1.value; i++){
         salida.innerHTML+=(num2.value); // OJO porque si pones "=" en lugar de "+=" lo que hace es sobreescribir el contenido cada vez. Eso es una diferencia clave con respecto al System.out.print() de Java. Poniendo el "+=" logramos que concatene con lo que ya hay.
     }     
 })
-*/
+
 
 
 
