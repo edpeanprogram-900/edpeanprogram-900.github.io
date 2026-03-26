@@ -49,7 +49,7 @@ boton.addEventListener("click", (e) => {
 // Ejercicio 5 -> ahora lo actualizamos sin tener que usar ningún bucle
 boton.addEventListener("click", (e) => { 
     let texto="";
-    texto+=num1.value+"<br>";
+    texto+=num1.value+"<br>";    // ojo -> date cuenta de que hay que usar ".value".
     salida.innerHTML+=texto;
 })
 
