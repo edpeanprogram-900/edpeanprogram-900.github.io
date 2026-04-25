@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clima en Valencia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #0056b3;
+            margin-bottom: 3em;
+        }
+
+        #weather {
+            font-size: 1.2em;
+            margin: 20px 0;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            padding: 5px;
+            font-size: 1em;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 5px 10px;
+            font-size: 1em;
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #003d80;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="titulo">Clima actual</h1>
+    <p id="weather">Cargando...</p>
+
+    <form action="#" method="get">
+        <label for="city">Ciudad:</label>
+        <input type="text" id="city" name="city" value="Valencia">
+        <button type="button" id="boton">Actualizar</button>
+    </form>
+
+    <script>
+        // ----------------------------------------------------------------------------------------------------------------------------------------------
+
+        // URL de la API con tu clave (sustituye 'TU_API_KEY' por tu clave real)
+        // const apiKey = 'TU_API_KEY';
+            // correo que me ha llegado: "Within the next couple of hours, your API key dd98aa17e41d6e2b7a9993dde8e1ca13 will be activated and ready to use".
+        const apiKey = "dd98aa17e41d6e2b7a9993dde8e1ca13";
+
+        // ------------------------------------------------------------------------------------------------------------------------------------------------
+        let titulo = document.getElementById('titulo');
+        let boton = document.getElementById('boton');
+        let inputCiudad = document.getElementById('city');
+        boton.addEventListener('click', function () {
+            event.preventDefault(); // Evita que el formulario se envíe
+            obtenerClima();
+        });
+
+        // Detectar la tecla Enter en el campo de texto
+        inputCiudad.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter') {
+                event.preventDefault(); // Evita que el formulario se envíe
+                obtenerClima(); // Llama a la función obtenerClima()
+            }
+        });
+
+        function obtenerClima() {
+            const ciudad = inputCiudad.value;
+            //const url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad},ES&units=metric&appid=${apiKey}`;
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&lang=es&units=metric&appid=${apiKey}`;
+            titulo.innerHTML = "Clima actual " + ciudad;
+            // Usamos fetch para obtener los datos del clima
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Error al obtener los datos del clima: ' + response.statusText);
+                    }
+                    return response.json();
+                })
+                .then((data) => {
+                    // Extraemos los datos relevantes
+                    const temperature = data.main.temp;
+                    const description = data.weather[0].description;
+                    const humidity = data.main.humidity;
+
+                    // Mostramos los datos en el HTML
+                    /*  ACABALO  */ // --------------------------------------------------------------------------------------------------------------------------
+                    let weatherParraf = document.getElementById("weather");  // creo una variable y hago que apunte al <p> llamado "weather".
+
+                    weatherParraf.innerHTML = "Temperatura: " + temperature + "°C" + "<br>" + "Descripción: " + description + "<br>" + "Humedad: " + humidity + "%"; // el truco aquí es que los "<br" pasan a estar dentro del <p> del html (llamado "weather") y por ello los <br> serán interpretados correctamente por el html.  // Con innerHTML logro insertar texto y etiquetas en el propio HTML. 
+
+                    /*  FIN ACABALO  */ // -----------------------------------------------------------------------------------------------------------------------
+
+                })
+                .catch(error => {
+                    console.error('Hubo un problema:', error);
+                    document.getElementById('weather').textContent = `No se pudo obtener el clima.${error.message}`;
+                });
+        }
+        // Llamamos a la función para obtener el clima al cargar la página
+        obtenerClima();
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+
+<!-- 
+
+_______________________________________________________________________________________________________________________
+
+Ya he comprobado que funciona correctamente. 
+
+
+_________________________________________________________________________________________________________________________
+ 
+- Este es uno de los ejercicios que hay que entregar (se entregan todos dentro de una misma tarea). 
+
+- El enunciado esta en un pdf (lo he puesto en la carpeta "enunciados").
+
+
+
+_______________________________________________________________________________________________________________________
+
+OJO a esta instrucción clave del enunciado:
+
+"Necesitas tu propia api key, ojo TIENEN QUE PASAR 2 HORAS después de darte de alta para poder usarla, sino te dará un error 401 de clave inválida."
+
+
+
+____________________________________________________________________________________________________________________
+
+
+Regístrate en la página para obtener tu propio api key gratuito:
+    https://home.openweathermap.org/users/sign_up
+
+Nombre de usuario: "edpeanprogram"
+
+Una vez dentro con el usuario creado clicas en la pestaña "API" -> "Get API Key" 
+
+    - Te dice "The page you’re looking for doesn’t exist or has been moved" -> hay que esperar 2 horas. Son las 11:58h. Osea que a las 14:00h en teoría ya se podrá probar. En cualquier cosa ahora puedo seguir elaborando el código y pasadas 2 horas lo pruebo. 
+
+_______________________________________________________________________________________________________________________
+
+
+A las horas de haberte registrado te llega un correo, en él te dicen: "Within the next couple of hours, your API key dd98aa17e41d6e2b7a9993dde8e1ca13 will be activated and ready to use".
+
+    - Ese es el código que tienes que poner en la línea de código de "const apiKey = 'TU_API_KEY';"
+
+
+
+__________________________________________________________________________________________________________________
+
+Concepto de URL de una API vs. "API key"
+
+    - La "API key" es una contraseña pública que identifica quién eres cuando usas una API.
+
+OJO -> hay APIs que requieren API key y otras que no, y la diferencia depende de cómo el servicio quiere controlar el acceso.
+
+    - Por eso, en muchos de los ejercicios que hemos realizado no ha sido necesario usar una API key. 
+
+
+-->
